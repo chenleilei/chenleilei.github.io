@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[认知自我]]></title>
+  
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://www.cognize.me/"/>
+  <updated>2015-08-31T08:08:57.754Z</updated>
+  <id>http://www.cognize.me/</id>
+  
+  <author>
+    <name><![CDATA[Chilly]]></name>
+    
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[利用swirl包学习R语言]]></title>
+    <link href="http://www.cognize.me/2015/08/25/swirl/"/>
+    <id>http://www.cognize.me/2015/08/25/swirl/</id>
+    <published>2015-08-25T12:51:23.000Z</published>
+    <updated>2015-08-25T14:35:05.867Z</updated>
+    <content type="html"><![CDATA[<p>swirl包是一个非常不错的R语言学习包，在R环境中安装上swirl包之后，我们可以通过简单的命令与swirl包进行交互。swirl包会为我们展示一些R课程，我们选择某个课程之后，就可以进行该课程的交互式学习。<a id="more"></a></p>
+<h3 id="1-安装swirl">1.安装swirl</h3>
+<p>如果想要在线安装swirl包，利用如下命令就可以：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">install.packages(<span class="string">"swirl"</span>)</div></pre></td></tr></table></figure>
+
+<p>如果想要通过本地安装的方式安装swirl包，大家可以参考<a href="http://cognize.me/2014/11/20/installpackage/" title="《R语言之本地安装R包》" target="_blank" rel="external">《R语言之本地安装R包》</a>。</p>
+<h3 id="2-使用swirl">2.使用swirl</h3>
+<p>在安装完swirl包之后，我们可以通过输入如下命令，来开始使用swirl包：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(<span class="string">"swirl"</span>)</div><div class="line">swirl()</div></pre></td></tr></table></figure>
+
+<p>通过该命令，我们会得到一些R语言的课程列表，大家可以根据自己的需求进行选择性学习。</p>
+<h3 id="3-安装swirl中的课程">3.安装swirl中的课程</h3>
+<p>swirl包的课程是可扩展的，我们可以通过两种方式安装新课程。</p>
+<h4 id="3-1-自动方式安装">3.1.自动方式安装</h4>
+<p>命令如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(swirl)</div><div class="line">install_from_swirl(<span class="string">"Course Name Here"</span>)</div><div class="line">swirl()</div></pre></td></tr></table></figure>
+
+<p>其中”Course Name Here”为我们要安装的课程名，具体课程名有”R Programming”、”R Programming Alt”、”Data Analysis”、”Mathematical Biostatistics Boot Camp”、”Open Intro”、”Regression Models”、”Getting and Cleaning Data”、”Statistical Inference”、”Writing swirl Courses”等，具体课程的介绍我们可以查看<a href="https://github.com/swirldev/swirl_courses#swirl-courses" title="course repository" target="_blank" rel="external">course repository</a>。</p>
+<h4 id="3-2-手动方式安装">3.2.手动方式安装</h4>
+<p>命令如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(swirl)</div><div class="line">install_course_zip(<span class="string">"path/to/file/here/swirl_courses-master.zip"</span>, multi=<span class="literal">TRUE</span>, </div><div class="line">                   which_course=<span class="string">"Course Name Here"</span>)</div><div class="line">swirl()</div></pre></td></tr></table></figure>
+
+<p>其中”path/to/file/here/swirl_courses-master.zip”是swirl课程集合的本地路径，大家可以去<a href="https://github.com/swirldev/swirl_courses#swirl-courses" title="course repository" target="_blank" rel="external">course repository</a>下载；”Course Name Here”为我们要安装的课程名。</p>
+<p>原创文章如转载，请注明本文链接:<a href="http://www.cognize.me/2015/08/25/swirl" target="_blank" rel="external">http://www.cognize.me/2015/08/25/swirl</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>swirl包是一个非常不错的R语言学习包，在R环境中安装上swirl包之后，我们可以通过简单的命令与swirl包进行交互。swirl包会为我们展示一些R课程，我们选择某个课程之后，就可以进行该课程的交互式学习。]]>
+    
+    </summary>
+    
+      <category term="R" scheme="http://www.cognize.me/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[R语言中判断两个对象是否相等]]></title>
+    <link href="http://www.cognize.me/2015/08/25/r-equal/"/>
+    <id>http://www.cognize.me/2015/08/25/r-equal/</id>
+    <published>2015-08-25T12:34:00.000Z</published>
+    <updated>2015-08-26T07:27:25.075Z</updated>
+    <content type="html"><![CDATA[<p>在R语言中可以使用identical函数或者all.equal函数判断两个对象是否相同，例如：<br>假设x、y是R中我们要比较的对象，<br>identical(x,y)<br>若x等于y，返回TRUE；若x不等于y，则返回FALSE。<a id="more"></a><br>all.equal(x,y)<br>若x等于y，返回TRUE；若x不等于y，则返回不相等的原因。<br>identical和all.equal函数都可以判断两个对象是否相等。identical比较数据的内在关系，如果对象是严格相同的返回TRUE，否则返回FALSE。all.equal用来判断两个对象是否“近似相等”，返回结果为TRUE或者对二者差异的描述。后一个函数在比较数值型变量时考虑到了计算过程中的近似。</p>
+<p>原创文章如转载，请注明本文链接:<a href="http://www.cognize.me/2015/08/25/r-equal" target="_blank" rel="external">http://www.cognize.me/2015/08/25/r-equal</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在R语言中可以使用identical函数或者all.equal函数判断两个对象是否相同，例如：<br>假设x、y是R中我们要比较的对象，<br>identical(x,y)<br>若x等于y，返回TRUE；若x不等于y，则返回FALSE。]]>
+    
+    </summary>
+    
+      <category term="R" scheme="http://www.cognize.me/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[解决hexo一个奇怪的错误]]></title>
+    <link href="http://www.cognize.me/2015/08/22/msysgiterror/"/>
+    <id>http://www.cognize.me/2015/08/22/msysgiterror/</id>
+    <published>2015-08-22T13:13:08.000Z</published>
+    <updated>2015-08-22T14:32:22.907Z</updated>
+    <content type="html"><![CDATA[<p>其实说是“解决hexo一个奇怪的错误”并不恰当，因为错并不在hexo。<a id="more"></a></p>
+<p>我的hexo一直是部署在笔记本上，前几天笔记本硬盘坏了，等换上新的SSD以后，按照以前的步骤重新部署hexo,但是总是会出现“Permission denied (publickey). fatal: Could not read from remote repository.”和“Please make sure you have the correct access rights and the repository exists.”的错误，起初我以为是SSH公钥配置错误，但是在Git Bash里输入“ssh -T git@gitcafe.com<br>”却又可以出现“Hi xxxx! You’ve successfully authenticated, but GitCafe does not provide shell access.”的正确提示，反复试了几次，结果都一样<img width="20" height="20" class=" emoji nofancybox" title="sob" src="/images/emojis/sob.png"><img width="20" height="20" class=" emoji nofancybox" title="sob" src="/images/emojis/sob.png"><img width="20" height="20" class=" emoji nofancybox" title="sob" src="/images/emojis/sob.png"></p>
+<p>后来，在<a href="http://v2ex.com/t/215055#reply20" title="某论坛" target="_blank" rel="external">某论坛</a>发现一个网友和我的错误一模一样，但是他也没有解决的方法，就在刚刚我又去看了一下网友发的那个帖子，眼前忽然一亮<img width="20" height="20" class=" emoji nofancybox" title="open_mouth" src="/images/emojis/open_mouth.png"><img width="20" height="20" class=" emoji nofancybox" title="open_mouth" src="/images/emojis/open_mouth.png"><img width="20" height="20" class=" emoji nofancybox" title="open_mouth" src="/images/emojis/open_mouth.png"></p>
+<p><img src="http://7xknyo.com1.z0.glb.clouddn.com/other/2015-8-22-msysgiterror.jpg" alt=""></p>
+我注意到，我们运行环境是惊人的一样，用了相同版本的msysgit，出现了相同的错误提示，而网上所的教程中msysgit的版本都是另一个版本，会不会是msysgit版本的问题呢？我陷入了深深的思考......<img width="20" height="20" class=" emoji nofancybox" title="monkey_face" src="/images/emojis/monkey_face.png"><img width="20" height="20" class=" emoji nofancybox" title="monkey_face" src="/images/emojis/monkey_face.png"><img width="20" height="20" class=" emoji nofancybox" title="monkey_face" src="/images/emojis/monkey_face.png">
+
+<p>后来，我在<a href="http://pan.baidu.com/s/1o6miNZ8" target="_blank" rel="external">http://pan.baidu.com/s/1o6miNZ8</a>下载了旧版的msysgit，竟然可以正确运行，没有错误，没有错误，没有错误……<img width="20" height="20" class=" emoji nofancybox" title="ghost" src="/images/emojis/ghost.png"><img width="20" height="20" class=" emoji nofancybox" title="ghost" src="/images/emojis/ghost.png"><img width="20" height="20" class=" emoji nofancybox" title="ghost" src="/images/emojis/ghost.png"></p>
+<p>所以，该错误是由msysgit引起的，有相同错误的童鞋安装<a href="http://pan.baidu.com/s/1o6miNZ8" title="旧版本的msysgit" target="_blank" rel="external">旧版本的msysgit</a>就可以解决该问题。</p>
+<p>原创文章如转载，请注明本文链接:<a href="http://www.cognize.me/2015/08/22/msysgiterror" target="_blank" rel="external">http://www.cognize.me/2015/08/22/msysgiterror</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>其实说是“解决hexo一个奇怪的错误”并不恰当，因为错并不在hexo。]]>
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://www.cognize.me/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[解决gvim在win10下乱码的问题]]></title>
+    <link href="http://www.cognize.me/2015/08/16/win10Gvim/"/>
+    <id>http://www.cognize.me/2015/08/16/win10Gvim/</id>
+    <published>2015-08-16T08:31:46.000Z</published>
+    <updated>2015-08-16T09:32:32.000Z</updated>
+    <content type="html"><![CDATA[<p>今天在win10上安装了gvim，发现中文乱码，于是按照我以前的文章《<a href="http://cognize.me/2015/04/02/winVim/" title="windows下gvim中文乱码解决方案" target="_blank" rel="external">windows下gvim中文乱码解决方案</a>》进行了设置，但是发现仍然有乱码，后来发现通过设置字体可以解决，方法是在gvim的安装目录找到_vimrc文件，在里面加入如下代码：<a id="more"></a></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">"设置字体</div><div class="line">"set guifont=楷体:h10:cGB2312</div><div class="line">set guifont=KaiTi:h10:cGB2312</div><div class="line">"设置字符集</div><div class="line">set encoding=GBK</div><div class="line">set ambiwidth=double</div><div class="line">set fileencoding=utf-8</div><div class="line">set fileencodings=utf-8,ucs-bom,cp936,gb18030,utf-16,big5,gbk,ucs-bom,cp936,latin1</div><div class="line">set encoding=GBK</div><div class="line">set ambiwidth=double</div><div class="line">set fileencoding=utf-8</div><div class="line">set fileencodings=utf-8,ucs-bom,cp936,gb18030,utf-16,big5,gbk,ucs-bom,cp936,latin1</div></pre></td></tr></table></figure>
+
+<p>原创文章如转载，请注明本文链接:<a href="http://www.cognize.me/2015/08/16/win10Gvim" target="_blank" rel="external">http://www.cognize.me/2015/08/16/win10Gvim</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>今天在win10上安装了gvim，发现中文乱码，于是按照我以前的文章《<a href="http://cognize.me/2015/04/02/winVim/" title="windows下gvim中文乱码解决方案" target="_blank" rel="external">windows下gvim中文乱码解决方案</a>》进行了设置，但是发现仍然有乱码，后来发现通过设置字体可以解决，方法是在gvim的安装目录找到_vimrc文件，在里面加入如下代码：]]>
+    
+    </summary>
+    
+      <category term="vim" scheme="http://www.cognize.me/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[博客迁移]]></title>
+    <link href="http://www.cognize.me/2015/08/16/csdnToHexo/"/>
+    <id>http://www.cognize.me/2015/08/16/csdnToHexo/</id>
+    <published>2015-08-16T07:51:31.000Z</published>
+    <updated>2015-08-16T13:24:45.000Z</updated>
+    <content type="html"><![CDATA[<p>事实上，在2015年以前，我的所有博客都是在CSDN写的。在CSDN写博客有很多优点：<a id="more"></a><br>1.　省时省力。自己只需要关注文章本身，并不需要域名、空间等等。<br>2.　配合CSDN全套。因为它不只有博客，还有问答论坛、资源下载等等一系列相互配合的资源。<br>3.　提高博客的关注度。因为CSDN的pr值非常非常高，相同的文章在CSDN发表比自己搭域名发表要更容易被人们搜索到（这只是个人的猜测），进而帮助更多的人，与更多的人交流，等等等……<br>尽管如此，我还是将博客从CSDN迁出了，原因有很多。<br>我用自己搭建的博客写文章更自由，所有的主题、背景颜色、字体颜色、图片样式、音乐样式、视频样式等等等都可以自己定义，作为一个爱折腾的人，它可以给我更多折腾的空间。<br>忘记在哪看过一段话，大体意思就是你在某某平台上写文章就好比在别人地里耕田，最终还是别人的。对于这段话，我深以为然。在大的平台上写文章可以更容易的获得更多的访问量，但是我们的博客始终会打着某某平台的烙印，到头来，我们只是为别人耕田。我想要自己的土地，自己的空间，我的地盘我做主。这也是我从CSDN迁出的最主要原因。<br>简单说一下，《<a href="http://cognize.me/2014/11/18/first/" title="第一篇文章" target="_blank" rel="external">第一篇文章</a>》是在搭建好现在的博客后写的第一篇文章，所以发布时间在它之前的所有文章都来自我的CSDN博客。所以希望看过我博客的朋友不要因为《<a href="http://cognize.me/2014/11/18/first/" title="第一篇文章" target="_blank" rel="external">第一篇文章</a>》竟然不是第一篇博客而感到疑惑。</p>
+<p>原创文章如转载，请注明本文链接:<a href="http://www.cognize.me/2015/08/16/csdnToHexo" target="_blank" rel="external">http://www.cognize.me/2015/08/16/csdnToHexo</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>事实上，在2015年以前，我的所有博客都是在CSDN写的。在CSDN写博客有很多优点：]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[利用Amazon EC2解决RStudio中文乱码问题]]></title>
+    <link href="http://www.cognize.me/2015/08/07/rstudioAMI/"/>
+    <id>http://www.cognize.me/2015/08/07/rstudioAMI/</id>
+    <published>2015-08-07T09:05:06.000Z</published>
+    <updated>2015-08-08T05:39:44.000Z</updated>
+    <content type="html"><![CDATA[<p>最近，喜迎Windows升级，笔记本从win8.1升到了win10，win10虽然有着酷炫的外观以及高质量的性能，但是某些工具仍然出现了不兼容的情况。就是其中一个。我安装的是最新版的RStudio(0.99.467版)，在安装时安装界面就是乱码，凭着超强的第六感，完成了安装，但是中文却是乱码。举个例子：<br><a id="more"></a>输入：&gt; print(“R语言”)<br>输出：[1] “RÓïÑÔ”<br>网上的方法如：Tools—&gt;Global Options—&gt;Default text encoding—&gt;UTF-8都试了，无效。方法各种无效，RStudio各种乱码，真是万念俱灰啊<img width="20" height="20" class=" emoji nofancybox" title="sob" src="/images/emojis/sob.png"><img width="20" height="20" class=" emoji nofancybox" title="sob" src="/images/emojis/sob.png"><img width="20" height="20" class=" emoji nofancybox" title="sob" src="/images/emojis/sob.png">。<br>后来经大神 <a href="http://cos.name/cn/profile/ryo/" title="Ryo Eng®" target="_blank" rel="external">Ryo Eng®</a>帮助，发现了Amazon EC2可以解决RStudio问题。说白了就是，因为我的电脑系统问题，不能正常使用RStudio，但是我们可以通过Amazon EC2使用其它系统正常的电脑运行RStudio。<br>Amazon EC2（EC2，Elastic Compute Cloud）是一个让使用者可以租用云端电脑运行所需应用的系统。EC2借由提供Web服务的方式让使用者可以弹性地运行自己的Amazon机器映像档，使用者将可以在这个虚拟机器上运行任何自己想要的软件或应用程式。提供可调整的云计算能力。它旨在使开发者的网络规模计算变得更为容易。<br>需要提前说明的是，本教程使用的是Amazon EC2的免费版，新注册用户可以免费套餐，免费期为一年，一年之后会根据用户的使用量收费。如果各位介意使用一年后的收费问题，后面的部分就没必要看了，可以再去寻找其它方法。关于Amazon EC2的注册非常简单，步骤如同我们平常注册账号一样，如果不懂，请自行google。<br>利用Amazon EC2解决RStudio中文乱码问题具体步骤如下：<br>1.假设你已经成功注册了Amazon EC2，那么呈现在你面前的应该是如下画面：<br><img src="http://7xknyo.com1.z0.glb.clouddn.com/rplot/RStudioAMI-2015-8-7-1.png?imageView2/1/w/751/h/464" alt=""><br>2.点击”EC2”链接，进入“EC2控制面板”界面。<br><img src="http://7xknyo.com1.z0.glb.clouddn.com/rplot/RStudioAMI-2015-8-7-2.png?imageView2/1/w/751/h/464" alt=""><br>3.点击“启动实例”。因为当前我们还没有创建实例，所以会提示要我们创建实例，点击“社区AMI”，在搜索框里输入“RStudio”,按回车键，系统就会列出所有包含RStudio软件的系统，这里我选择第四个（因为它的RStudio版本是最新的），单击选择，进入“选择实例类型”界面。<br><img src="http://7xknyo.com1.z0.glb.clouddn.com/rplot/RStudioAMI-2015-8-7-3.png?imageView2/1/w/751/h/464" alt=""><br>4.这里我选择第一个——t2.micro（因为它是免费的），单击“下一步”，进入“配置实例”界面。<br><img src="http://7xknyo.com1.z0.glb.clouddn.com/rplot/RStudioAMI-2015-8-7-4.png?imageView2/1/w/751/h/464" alt=""><br>5.单击“下一步”，进入“添加存储”界面。<br>6.单击“下一步”，进入“标签实例”界面<br>7.单击“下一步”，进入“配置安全组”界面。安全组名称写“RStudio”，类型选”HTTP”，会出现警告信息，忽略之，点击”启动和审核”，进入”审核”界面。<br><img src="http://7xknyo.com1.z0.glb.clouddn.com/rplot/RStudioAMI-2015-8-7-7.png?imageView2/1/w/751/h/464" alt=""><br>8.点击”启动”。<br><img src="http://7xknyo.com1.z0.glb.clouddn.com/rplot/RStudioAMI-2015-8-7-8.png?imageView2/1/w/751/h/464" alt=""><br>9.会弹出对话框，让用户选择密钥，选择”在没有密钥对的情况下继续”，选上”我确认无法连接到此实例，除非我已经知道内置于AMI中的密码”，点击”启动实例”启动实例。<br><img src="http://7xknyo.com1.z0.glb.clouddn.com/rplot/RStudioAMI-2015-8-7-9.png?imageView2/1/w/751/h/464" alt=""><br>10.点击”查看实例”查看实例。<br><img src="http://7xknyo.com1.z0.glb.clouddn.com/rplot/RStudioAMI-2015-8-7-10.png?imageView2/1/w/751/h/464" alt=""><br>11.如下，就是实例的详细信息，不过我的大部分信息都被我划掉了，你们看不到，你们看不到<img width="20" height="20" class=" emoji nofancybox" title="ghost" src="/images/emojis/ghost.png">，下图中的”共有DNS”值是一个网址，转到该网址，就进入了RStudio登录界面。<br><img src="http://7xknyo.com1.z0.glb.clouddn.com/rplot/RStudioAMI-2015-8-7-11.png?imageView2/1/w/751/h/464" alt=""><br>12.第一次登录默认的Username和Password都是”rstudio”，输入之，登录。<br><img src="http://7xknyo.com1.z0.glb.clouddn.com/rplot/RStudioAMI-2015-8-7-12.png?imageView2/1/w/751/h/464" alt=""><br>13.登录成功就会出现RStudio界面，看着很像本地的RStudio，但它只需要浏览器就可以运行了，不需要安装R,不需要安装RStudio。很简单是不是<img width="20" height="20" class=" emoji nofancybox" title="sunglasses" src="/images/emojis/sunglasses.png">很方便是不是<img width="20" height="20" class=" emoji nofancybox" title="sunglasses" src="/images/emojis/sunglasses.png">。<br><img src="http://7xknyo.com1.z0.glb.clouddn.com/rplot/RStudioAMI-2015-8-7-13.png?imageView2/1/w/751/h/464" alt=""><br>14.建议修改登录密码。选中”passwd()”，点击”Source”，按照提示修改登录密码，重新登录，试一下中文：<br>输入：&gt; print(“我很聪明是不是？”)<br>输出：[1] “是的，你很聪明”<br>输出是中文有木有<img width="20" height="20" class=" emoji nofancybox" title="hankey" src="/images/emojis/hankey.png">，没有乱码有木有<img width="20" height="20" class=" emoji nofancybox" title="relaxed" src="/images/emojis/relaxed.png"><br>15.Enjoy it<img width="20" height="20" class=" emoji nofancybox" title="clap" src="/images/emojis/clap.png"><img width="20" height="20" class=" emoji nofancybox" title="clap" src="/images/emojis/clap.png"><img width="20" height="20" class=" emoji nofancybox" title="clap" src="/images/emojis/clap.png"><br>参考文章：<a href="http://www.louisaslett.com/RStudio_AMI/" title="RStudio Server Amazon Machine Image (AMI)" target="_blank" rel="external">RStudio Server Amazon Machine Image (AMI)</a></p>
+<p>原创文章如转载，请注明本文链接:<a href="http://www.cognize.me/2015/08/07/rstudioAMI" target="_blank" rel="external">http://www.cognize.me/2015/08/07/rstudioAMI</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>最近，喜迎Windows升级，笔记本从win8.1升到了win10，win10虽然有着酷炫的外观以及高质量的性能，但是某些工具仍然出现了不兼容的情况。就是其中一个。我安装的是最新版的RStudio(0.99.467版)，在安装时安装界面就是乱码，凭着超强的第六感，完成了安装，但是中文却是乱码。举个例子：<br>]]>
+    
+    </summary>
+    
+      <category term="R" scheme="http://www.cognize.me/tags/R/"/>
+    
+      <category term="RStudio" scheme="http://www.cognize.me/tags/RStudio/"/>
+    
+      <category term="Amazon EC2" scheme="http://www.cognize.me/tags/Amazon-EC2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hexo图床管理(二)]]></title>
+    <link href="http://www.cognize.me/2015/08/03/tuchuang2/"/>
+    <id>http://www.cognize.me/2015/08/03/tuchuang2/</id>
+    <published>2015-08-03T07:48:20.000Z</published>
+    <updated>2015-08-05T03:31:53.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7xknyo.com1.z0.glb.clouddn.com/view/2015-8-3-tuchuang2.jpg?imageView2/1/w/751/h/464" alt=""><br>前一段时间写了一篇<a href="http://www.cognize.me/2015/07/22/tuchuang/" title="《Hexo图床管理》" target="_blank" rel="external">《Hexo图床管理》</a>，今天终于派上了用场，今天刚从某存储转到七牛云存储，还有很多话说。<br><a id="more"></a><br><a href="http://www.cognize.me/2015/07/22/tuchuang/" title="《Hexo图床管理》" target="_blank" rel="external">《Hexo图床管理》</a>的大体思路是在我们主题目录下的”scripts“文件夹中创建一个.js文件（文件名任意，如mypicture.js等），在里面添加如下内容：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo.extend.tag.register(<span class="string">'plant'</span>, <span class="function"><span class="keyword">function</span><span class="params">(args, content)</span></span>{</div><div class="line">  <span class="keyword">var</span> id = args[<span class="number">0</span>];</div><div class="line">  <span class="keyword">return</span> <span class="string">'http://plant.xxx.com'</span>;</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>然后，以后写文章插入图片时不再使用</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](http://plant.xxx.com/pictureName.jpg)</div></pre></td></tr></table></figure>
+
+<p>的形式，而是以</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">”&#123;%plant%&#125;</span>/<span class="attribute">pictureName.jpg</span>” <span class="attribute">alt</span>=<span class="value">””</span>&gt;</span><span class="tag">&lt;/<span class="title">img</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>的形式替代之，以后如果更换图床，只需要更改那个.js文件就可以，不明白的同学可以去看一下<a href="http://www.cognize.me/2015/07/22/tuchuang/" title="《Hexo图床管理》" target="_blank" rel="external">《Hexo图床管理》</a>。<br>现在，我把图床搬家到了七牛云存储，发现了更多可以优化的地方。<br>七牛提供了“图片处理”的功能，可以为我们的图片瘦身，还可以增加我们的水印，真的非常方便。要知道，我以前使用的原图大小一般都在2M左右，甚至更大，但是通过定制图片的格式，大小能减小到几十KB，大大提高了博客的访问速度。<br>网上很多关于七牛图片处理的教程都是新建图片样式，自定义图片的分辨率、图片质量等信息，假设新建的样式叫”newStyle”，我们要使用新样式只需要在原图片地址后加入”-newStyle”就好，例如，我之前插入图片都是如下格式：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src="&#123;%plant%&#125;/apple.jpg" alt=""&gt;&lt;/img&gt;</div></pre></td></tr></table></figure>
+
+<p>现在，为了使用新样式，我必须使用如下方式插入图片：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src="&#123;%plant%&#125;/apple.jpg-newStyle" alt=""&gt;&lt;/img&gt;</div></pre></td></tr></table></figure>
+
+<p>这种做法不错，但是对我来说有几个弊端：<br>1.七牛云存储支持链接后加“-样式名”的格式，但是很多图床并不支持，如果你想以后更换其它图床的话，为了图片正常显示，你必须把每个链接后的“-样式名”去掉，非常麻烦；<br>2.万一以后你突然不满意现在的样式，你很可能要再新建样式，然后将文章的旧样式替换成新样式，如果你希望很多图片都用这种样式，还是要一篇篇的修改，非常麻烦。<br>为了解决上述问题，我们可以再在.js文件中添加如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo.extend.tag.register(<span class="string">'suffix'</span>, <span class="function"><span class="keyword">function</span><span class="params">(args, content)</span></span>{</div><div class="line">  <span class="keyword">var</span> id = args[<span class="number">0</span>];</div><div class="line">  <span class="keyword">return</span> <span class="string">'?imageView2/1/w/751/h/464'</span>;</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>其中，751代表新建图片的宽度(px)，464代表图片的高度(px)，大家可以根据自己的喜好设定。<br>然后使用如下代码插入图片：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src="&#123;%plant%&#125;/apple.jpg&#123;%suffix%&#125;" alt=""&gt;&lt;/img&gt;</div></pre></td></tr></table></figure>
+
+<p>这样输出的图像就是一副宽751高464的图像，如果大家想要输出原图或者迁入其它图床，只需要return ‘’即可。<br>这样，大家就可以通过更改.js文件随心所欲的控制输出图片的大小格式了。当然，大家也可以在.js文件中定义多种样式，根据图片不同调用不同的格式。<br>如何通过.js文件添加水印我还没有找到方法，相信聪明的各位一定会找到。更多详细的图片格式设置，大家请参考：<a href="http://developer.qiniu.com/docs/v6/api/reference/fop/image/imageview2.html" rel="external" target="_blank">七牛基本图片处理</a>。<br>另外，安利一下七牛云存储，确实不错，如果大家仅仅在找图床，强力推荐之。如果大家还没有七牛的账号，欢迎通过<a href="https://portal.qiniu.com/signup?code=3lftkxs9jj42a" target="_blank" rel="external">我的邀请链接</a>注册<img src="/images/emojis/smile.png" width="20" height="20" class=" emoji nofancybox" title="smile">，如果你成为标准会员，我将得到5G的下载流量<img src="/images/emojis/blush.png" width="20" height="20" class=" emoji nofancybox" title="blush">。<br>原创文章如转载，请注明本文链接:<a href="http://www.cognize.me/2015/08/03/tuchuang2" target="_blank" rel="external">http://www.cognize.me/2015/08/03/tuchuang2</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://7xknyo.com1.z0.glb.clouddn.com/view/2015-8-3-tuchuang2.jpg?imageView2/1/w/751/h/464" alt=""><br>前一段时间写了一篇<a href="http://www.cognize.me/2015/07/22/tuchuang/" title="《Hexo图床管理》" target="_blank" rel="external">《Hexo图床管理》</a>，今天终于派上了用场，今天刚从某存储转到七牛云存储，还有很多话说。<br>]]>
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://www.cognize.me/tags/hexo/"/>
+    
+      <category term="图床" scheme="http://www.cognize.me/tags/%E5%9B%BE%E5%BA%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[七牛图片测试]]></title>
+    <link href="http://www.cognize.me/2015/08/02/qiniutest/"/>
+    <id>http://www.cognize.me/2015/08/02/qiniutest/</id>
+    <published>2015-08-02T09:45:01.000Z</published>
+    <updated>2015-08-02T14:56:10.000Z</updated>
+    <content type="html"><![CDATA[<p>前七牛原图后七牛参数控制图：<br><a id="more"></a><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/2014-11-18-1.jpg" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/2014-11-18-1.jpg?imageView2/1/w/751/h/464" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/2014-11-19-lm.jpg" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/2014-11-19-lm.jpg?imageView2/1/w/751/h/464" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/2014-11-20-installpackage.jpg" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/2014-11-20-installpackage.jpg?imageView2/1/w/751/h/464" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/2014-11-21-qq.jpg" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/2014-11-21-qq.jpg?imageView2/1/w/751/h/464" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/2014-11-22-pvalue.jpg" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/2014-11-22-pvalue.jpg?imageView2/1/w/751/h/464" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/2015-1-14-words2.jpg" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/2015-1-14-words2.jpg?imageView2/1/w/751/h/464" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/2c0343f7.jpg" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/2c0343f7.jpg?imageView2/1/w/751/h/464" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/43e39040.jpg" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/43e39040.jpg?imageView2/1/w/751/h/464" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/5cf8b62b.jpg" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/5cf8b62b.jpg?imageView2/1/w/751/h/464" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/6e609595.jpg" alt=""><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/6e609595.jpg?imageView2/1/w/751/h/464" alt=""></p>
+<p><img src="/images/emojis/ghost.png" width="20" height="20" class=" emoji nofancybox" title="ghost"><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/test/2014-11-18-1.jpg?imageView2/1/w/751/h/464" alt=""></p>
+<p><img src="/images/emojis/ghost.png" width="ghost" height="ghost" class=" emoji nofancybox" title="ghost"><br>原创文章如转载，请注明本文链接:<a href="http://www.cognize.me/2015/08/02/qiniutest" target="_blank" rel="external">http://www.cognize.me/2015/08/02/qiniutest</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>前七牛原图后七牛参数控制图：<br>]]>
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://www.cognize.me/tags/hexo/"/>
+    
+      <category term="test" scheme="http://www.cognize.me/tags/test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[安装最新版hexo(hexo 3)]]></title>
+    <link href="http://www.cognize.me/2015/07/27/installhexo3/"/>
+    <id>http://www.cognize.me/2015/07/27/installhexo3/</id>
+    <published>2015-07-27T12:55:40.000Z</published>
+    <updated>2015-07-29T15:18:05.000Z</updated>
+    <content type="html"><![CDATA[<p>虽然本篇的主题是安装hexo 3，但是因为某些插件及符号无法在hexo中使用，如emoji表情插件无法使用；&#123;% %&#125;符号无法使用，致使无法用 <a href="http://cognize.me/2015/07/22/tuchuang/" title="《Hexo图床管理》" target="_blank" rel="external">《Hexo图床管理》</a>的方法进行图床管理。因此我重新退回了hexo 2.8.3版本。但是，事物总是在发展，沉舟侧畔千帆过，病树前头万木春，新版本肯定会取代旧版本，如果各位想要安装最新版的hexo，请继续往下看。<br><a id="more"></a><br>事实上，hexo官网给出了最新版hexo的安装教程：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> hexo-cli -g</span></div><div class="line">hexo init blog</div><div class="line">cd blog</div><div class="line">npm <span class="keyword">install</span></div><div class="line">hexo <span class="keyword">server</span></div></pre></td></tr></table></figure>
+
+<p>在shell中运行上述代码就可以安装最新版的hexo，但是当我们将写好的博客上传到github或gitcafe等空间时（即运行hexo d时），可能会出现“ERROR Deployer not found: github”的错误，解决方法如下：</p>
+<ol>
+<li>将我们hexo根目录下的config文件中的如下代码：</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="class"><span class="keyword">type</span>: <span class="title">github</span></span></div><div class="line">  repository: xxxxx</div><div class="line">  branch: xxxx</div></pre></td></tr></table></figure>
+
+<p>用git替换type中的值github<br>2.运行npm install hexo-deployer-git —save<br>3.最后运行hexo d，就可以将我们的博客提交到博客托管空间。</p>
+<p>原创文章如转载，请注明本文链接:<a href="http://cognize.me/2015/07/27/installhexo3/" target="_blank" rel="external">http://cognize.me/2015/07/27/installhexo3/</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[安装最新版hexo，即hexo 3]]>
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://www.cognize.me/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[表情测试]]></title>
+    <link href="http://www.cognize.me/2015/07/26/facetest/"/>
+    <id>http://www.cognize.me/2015/07/26/facetest/</id>
+    <published>2015-07-26T14:42:18.000Z</published>
+    <updated>2015-08-02T10:53:55.000Z</updated>
+    <content type="html"><![CDATA[<p>aaa<img width="20" height="20" class=" emoji nofancybox" title="smiley" src="/images/emojis/smiley.png">bbb<img width="20" height="20" class=" emoji nofancybox" title="boom" src="/images/emojis/boom.png">ccc<br>ddd<img src="/images/emojis/worried.png" width="20" height="20" class=" emoji nofancybox" title="worried">eee<br>世界<img src="/images/emojis/ghost.png" width="20" height="20" class=" emoji nofancybox" title="ghost">你好<img src="/images/emojis/ghost.png" width="20" height="20" class=" emoji nofancybox" title="ghost">哈哈哈<br>hello<img src="/images/emojis/ghost.png" width="ghost" height="ghost" class=" emoji nofancybox" title="ghost">world<br>new<img src="/images/emojis/ghost.png" width="ghost" height="ghost" class="ghost emoji nofancybox" title="ghost">world</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>aaa<img width="20" height="20" class=" emoji nofancybox" title="smiley" src="/images/emojis/smiley.png">bbb<img width="20" height="20" cl]]>
+    </summary>
+    
+      <category term="hexo" scheme="http://www.cognize.me/tags/hexo/"/>
+    
+      <category term="test" scheme="http://www.cognize.me/tags/test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[相册测试]]></title>
+    <link href="http://www.cognize.me/2015/07/26/photos/"/>
+    <id>http://www.cognize.me/2015/07/26/photos/</id>
+    <published>2015-07-26T10:56:25.000Z</published>
+    <updated>2015-07-29T16:23:43.000Z</updated>
+    <content type="html"><![CDATA[]]></content>
+    <summary type="html">
+    <![CDATA[]]>
+    </summary>
+    
+      <category term="hexo" scheme="http://www.cognize.me/tags/hexo/"/>
+    
+      <category term="test" scheme="http://www.cognize.me/tags/test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[hexo安装与卸载插件]]></title>
+    <link href="http://www.cognize.me/2015/07/24/hexoinstall/"/>
+    <id>http://www.cognize.me/2015/07/24/hexoinstall/</id>
+    <published>2015-07-23T16:31:20.000Z</published>
+    <updated>2015-07-29T15:15:56.000Z</updated>
+    <content type="html"><![CDATA[<p>hexo安装xxx插件<br>npm install xxx —save<br>hexo卸载xxx插件<br>npm uninstall xxx</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[hexo安装与卸载插件]]>
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://www.cognize.me/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hexo图床管理]]></title>
+    <link href="http://www.cognize.me/2015/07/22/tuchuang/"/>
+    <id>http://www.cognize.me/2015/07/22/tuchuang/</id>
+    <published>2015-07-22T14:51:50.000Z</published>
+    <updated>2015-08-03T08:36:30.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7xknyo.com1.z0.glb.clouddn.com/view/2015-7-22-tuchuang.jpg?imageView2/1/w/751/h/464" alt=""><br>好久没有访问自己的博客了，当最近打开时，猛然一惊，博客中的图片都为无法显示的状态，刚开始以为是自己的网速不行，后来在写文章添加图片时才发现，我图床所在的存储平台进行了改版，以前的图片链接地址都失效了，导致我博客中的图片无法显示。以前的博客可是有很多图片的，要是一个个的更改图片地址真的是个大工程。<br><a id="more"></a><br>后来，终于找到了方法(注意：该方法只在hexo 2版本时有效)。<br>Hexo支持Markdown写作，所以我们在为博客添加图片时，都是采用如下格式：<br>![](<a href="http://xxx.com/bucketName/pictureName.jpg" target="_blank" rel="external">http://xxx.com/bucketName/pictureName.jpg</a>)或者&lt;img src=”<a href="http://xxx.com/bucketName/pictureName.jpg" target="_blank" rel="external">http://xxx.com/bucketName/pictureName.jpg</a>“ alt=””&gt;&lt;/img&gt;<br>从上面可以看出，我们的地址包含两部分，一部分是图片所在仓库的地址（<a href="http://xxx.com/bucketName/" target="_blank" rel="external">http://xxx.com/bucketName/</a>）,另一部分是图片的名字（pictureName.jpg），仓库地址是我们注册某个存储平台时该平台提供的，而后一部分是我们真实的图片名字，是我们自己提供的。<br>一旦该存储平台失效，我们的图片链接也会跟着失效。然后，我们会寻找新的可用的存储平台，然后将图片迁移过去。怎么迁移呢？<br>1.上传我们的图片；<br>2.将我们博客中的图片地址改为新的地址。<br>但是，问题是，如果我们博客中有很多很多图片，难道我们要一个文档一个文档的修改地址吗？无疑，这样做工作量是很大的。<br>但是，如果这样呢：<br>1.我们先在博客中定义图片仓库的地址（如：<a href="http://xxx.com/bucketName" target="_blank" rel="external">http://xxx.com/bucketName</a>）,并将其复制给某个全局变量pictureAdress；<br>2.我们在添加图片时地址使用pictureAdress+pictureName.jpg的形式;<br>一旦，我们使用的存储平台失效了，即pictureAdress目前的值失效了，我们只需要修改pictureAdress，赋予它新的图片仓库地址就可以啦。虽然这个过程也要上传图片，但是在更改文档时，只需要修改pictureAdress就可以了，并不需要一个图片地址一个图片地址的修改了，是不是简单很多了。<br>具体方法如下：<br>在本地的hexo中，找到你现在所用的主题目录，打开其中的”scripts“文件夹，然后创建一个.js文件（文件名任意，如mypicture.js等），在里面添加如下内容：</p>
+<p><pre><br>hexo.extend.tag.register(‘plant’, function(args, content){<br>  var id = args[0];<br>  return ‘<a href="http://plant.xxx.com" target="_blank" rel="external">http://plant.xxx.com</a>‘;<br>});<br>hexo.extend.tag.register(‘animal’, function(args, content){<br>  var id = args[0];<br>  return ‘<a href="http://animal.xxx.com" target="_blank" rel="external">http://animal.xxx.com</a>‘;<br>});<br></pre><br>注意：上面的”<a href="http://plant.xxx.com" target="_blank" rel="external">http://plant.xxx.com</a>“和”<a href="http://animal.xxx.com" target="_blank" rel="external">http://animal.xxx.com</a>“即代表了pictureAdress的值，上面只是写了两个函数，一个代表某存储中植物图片库的地址，另一个代表了某存储中动物图片库的地址，大家可以根据自己的情况对库的数量进行增删。在我们写文章添加图片时，要加上这个库地址，比如我想添加一个苹果树的图片，它在存储平台的真实地址是”<a href="http://plant.xxx.com/apple.jpg" target="_blank" rel="external">http://plant.xxx.com/apple.jpg</a>“，为了显示该图片，我们应该这么写：</p>
+<p><pre><br>&lt;img src=”&#123;%plant%&#125;/apple.jpg” alt=””&gt;&lt;/img&gt;<br></pre><br>因为&#123;%plant%&#125;代表了<a href="http://plant.xxx.com" target="_blank" rel="external">http://plant.xxx.com</a>，&#123;%plant%&#125;/apple.jpg就代表了”<a href="http://plant.xxx.com/apple.jpg" target="_blank" rel="external">http://plant.xxx.com/apple.jpg</a>“这个真实地址。一旦我们使用的存储平台失效了，我们只需要将图片上传到新平台，然后将&#123;%plant%&#125;的值改为新平台给我们的地址<a href="http://plant.yyy.com" target="_blank" rel="external">http://plant.yyy.com</a>就可以啦。<br>注意：因为hexo3不支持&#123;% %&#125;的写法，因此该方法只在hexo 2时有效。<br>参考文章：<em><a href="http://www.winterland.me/2013/11/bae-imbed/" target="_blank" rel="external">http://www.winterland.me/2013/11/bae-imbed/</a></em></p>
+<p>原创文章如转载，请注明本文链接:<a href="http://cognize.me/2015/07/22/tuchuang/" target="_blank" rel="external">http://cognize.me/2015/07/22/tuchuang/</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[Hexo如何进行图床管理]]>
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://www.cognize.me/tags/hexo/"/>
+    
+      <category term="图床" scheme="http://www.cognize.me/tags/%E5%9B%BE%E5%BA%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[利用R包RCurl登录新浪微博]]></title>
+    <link href="http://www.cognize.me/2015/07/21/rcurlLogin/"/>
+    <id>http://www.cognize.me/2015/07/21/rcurlLogin/</id>
+    <published>2015-07-21T09:00:40.000Z</published>
+    <updated>2015-08-02T14:11:15.000Z</updated>
+    <content type="html"><![CDATA[<p>准备工作</p>
+<p>在火狐浏览器上安装插件“Live http headers”，重启浏览器。<br>在火狐浏览器上手动登录新浪微博。<br>手动成功登录后，鼠标右键单击“查看页面信息”，弹出如下信息：<br><a id="more"></a><br><img src="http://7xknyo.com1.z0.glb.clouddn.com/rplot/2015-7-21-RCurlLogin.png?imageView2/1/w/751/h/464" alt="弹出框"><br>选择“Headers”,点击“save as”，将内容保存为”weibo”。打开下载好的”weibo”，你会发现内容分为<br>两部分，即“Request Headers”和“Response Header”。这里我们只需要“Request Headers”的信息，<br>将内容：</p>
+<p><pre><br>Host: xxx<br>User-Agent: xxx<br>Accept: xxx<br>Accept-Language: xxx<br>Accept-Encoding: xxx<br>Referer: xxx<br>Cookie: xxx<br>Connection: xxx<br></pre><br>修改成程序需要的格式即可，具体形式在代码中会详述。</p>
+<p>Coding</p>
+<p><pre><br>require(RCurl)<br>myHttpheader&lt;- c(<br>“Host”=”xxx”,<br>“User-Agent”=”xxx”,<br>“Accept”=”xxx”,<br>“Accept-Language”=”xxx”,<br>“Accept-Encoding”=”xxx”,<br>“Referer”=”xxx”,<br>“Cookie”=”xxx”,<br>“Connection”=”xxx”<br>)#本段代码对应“weibo”文件中的“Request Headers”，“xxx”换成大家文件中的真实值<br>d =debugGatherer()<br>cHandle&lt;- getCurlHandle(httpheader=myHttpheader,followlocation=1,<br>          debugfunction=d$update,verbose=TRUE)<br>temp&lt;- getURL(“<a href="http://d.weibo.com/&quot;,curl=cHandle,.encoding=&quot;gbk" target="_blank" rel="external">http://d.weibo.com/&quot;,curl=cHandle,.encoding=&quot;gbk</a>“)<br>grep(“yourWeiboName”,temp)#”yourWeiboName”请替换成大家真实的微博用户名，大小写一定要一致<br></pre><br>运行上述代码，如果登录成功，会返回结果“1”，否则为“integer(0)”。<br>当然，本代码也可以用来登录其它网站，方法相同，大家可以自己尝试。<br>参考文章：<em><a href="http://cos.name/cn/topic/17816/" target="_blank" rel="external">http://cos.name/cn/topic/17816/</a></em><br><em><a href="http://www.xueningzhu.com/用rcurl登录人人网/" target="_blank" rel="external">http://www.xueningzhu.com/用rcurl登录人人网/</a></em></p>
+<p>原创文章如转载，请注明本文链接:<a href="http://cognize.me/2015/07/21/rcurlLogin/" target="_blank" rel="external">http://cognize.me/2015/07/21/rcurlLogin/</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[利用R包RCurl模拟登录新浪微博]]>
+    
+    </summary>
+    
+      <category term="R" scheme="http://www.cognize.me/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[R语言中barplot函数的用法]]></title>
+    <link href="http://www.cognize.me/2015/07/18/r-barplot/"/>
+    <id>http://www.cognize.me/2015/07/18/r-barplot/</id>
+    <published>2015-07-18T08:59:37.000Z</published>
+    <updated>2015-08-13T08:10:46.000Z</updated>
+    <content type="html"><![CDATA[<p>barplot函数在R中是一个画条线图的函数。<br>最简单的用法，即当参数为一个向量时，用法如例子所示：<br><a id="more"></a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; mydata&lt;-c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</div><div class="line">&gt; barplot(mydata)</div></pre></td></tr></table></figure>
+
+<p>结果如下图所示：<br><img src="http://7xknyo.com1.z0.glb.clouddn.com/rplot/2015-7-18-r-barplot.png?imageView2/1/w/751/h/464" alt=""><br>结果图形的x轴被分成了五份，因为mydata中一共有五个数据，y轴则对应了每个数据的具体数值。</p>
+<p>另外，稍复杂的用法是参数为矩阵的情况，用法如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; mydata&lt;-data.frame(aaa=c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>),bbb=c(<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>))</div><div class="line">&gt; barplot(as.matrix(mydata))</div></pre></td></tr></table></figure>
+
+<p>结果如下图所示：<br><img src="http://7xknyo.com1.z0.glb.clouddn.com/rplot/2015-7-18-r-barplot2.png?imageView2/1/w/751/h/464" alt=""><br>结果图形的x轴被分成两部分，因为mydata一共有两个元素，即aaa和bbb，x轴的默认表情就是mydata的列名，而每列中的数据依次叠加在一起，高度为各自的数值。如果想将数据中每列的图形分开，可以使用参数beside，即：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; barplot(as.matrix(mydata),beside=<span class="literal">T</span>)</div></pre></td></tr></table></figure>
+
+<p>结果如下图所示：<br><img src="http://7xknyo.com1.z0.glb.clouddn.com/rplot/2015-7-18-r-barplot3.png?imageView2/1/w/751/h/464" alt=""><br>此时每列的图形并列排列。<br>此外，barplot函数中还包含col、names.arg等参数，其中col用来控制图像的颜色、names.arg用来设置x轴标签，具体用法大家可自行探索。</p>
+<p>原创文章如转载，请注明本文链接:<a href="http://cognize.me/2015/07/18/r-barplot/" target="_blank" rel="external">http://cognize.me/2015/07/18/r-barplot/</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[R语言中barplot函数的用法]]>
+    
+    </summary>
+    
+      <category term="R" scheme="http://www.cognize.me/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[R语言读取XML文件]]></title>
+    <link href="http://www.cognize.me/2015/07/12/rreadxml/"/>
+    <id>http://www.cognize.me/2015/07/12/rreadxml/</id>
+    <published>2015-07-12T09:46:30.000Z</published>
+    <updated>2015-08-13T08:06:13.000Z</updated>
+    <content type="html"><![CDATA[<p>首先要加载需要的R包，没有安装的童鞋要提前安装。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="keyword">library</span>(RCurl)        <span class="comment"># 加载R包</span></div><div class="line">&gt; <span class="keyword">library</span>(XML)</div></pre></td></tr></table></figure>
+
+<p>本文以读取在线xml文件<em><a href="http://www.w3school.com.cn/example/xdom/books.xml" target="_blank" rel="external">http://www.w3school.com.cn/example/xdom/books.xml</a></em>为例。<br><a id="more"></a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; url&lt;-<span class="string">"http://www.w3school.com.cn/example/xdom/books.xml"</span>  <span class="comment">#注，也可以为url复制本地文件的路径</span></div><div class="line">&gt; doc&lt;-xmlTreeParse(getURL(url),useInternal = <span class="literal">TRUE</span>)    <span class="comment">#获取文件</span></div></pre></td></tr></table></figure>
+
+<p>该xml文件中存储了很多”book”的信息，假如我们想读取第一本书的”title”的值,方法如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; xpathSApply(doc, <span class="string">"/bookstore/book[1]/title"</span>, xmlValue)</div></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; xpathSApply(doc, <span class="string">"//book[1]/title"</span>, xmlValue)</div></pre></td></tr></table></figure>
+
+<p>如果函数中填的是完整的节点路径（如”/bookstore/book[1]/title”），则要在节点名称前加”\”;如果函数中填的不是完整节点路径（如第二种方法），路径中的第一个节点是几级节点，该节点前就要加几个”\”，因为”book”为二级节点，所以其前加两个”\”，最终的路径形式为：”//book[1]/title”。因为在”bookstore”节点下有很多”book”节点，而我们想要读取的是第一步的”title”值，所以”book”节点后要加下标，即”book[1]”。如果不加下标，会读取所有book节点的title信息。</p>
+<p>如果我们想要读取第一个”book”节点子节点”title”中属性”lang”的值，方法如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; title&lt;-getNodeSet(doc, <span class="string">"/bookstore/book[1]/title"</span>)</div><div class="line">&gt; lang&lt;-sapply(title, xmlGetAttr, <span class="string">"lang"</span>)</div></pre></td></tr></table></figure>
+
+<p>或者  </p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; title&lt;-getNodeSet(doc, <span class="string">"//book[1]/title"</span>)</div><div class="line">&gt; lang&lt;-sapply(title, xmlGetAttr, <span class="string">"lang"</span>)</div></pre></td></tr></table></figure>
+
+<p>原创文章如转载，请注明本文链接:<a href="http://cognize.me/2015/07/12/rreadxml/" target="_blank" rel="external">http://cognize.me/2015/07/12/rreadxml/</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[R语言读取XML文件]]>
+    
+    </summary>
+    
+      <category term="R" scheme="http://www.cognize.me/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[R语言读取EXCEL文件的各种方法]]></title>
+    <link href="http://www.cognize.me/2015/06/29/readexcel/"/>
+    <id>http://www.cognize.me/2015/06/29/readexcel/</id>
+    <published>2015-06-29T13:27:31.000Z</published>
+    <updated>2015-08-13T07:55:47.000Z</updated>
+    <content type="html"><![CDATA[<p>注：本文为转载，原文地址：<em><a href="http://www.biostatistic.net/thread-35-1-1.html" target="_blank" rel="external">http://www.biostatistic.net/thread-35-1-1.html</a></em></p>
+<p>R语言读取EXCEL文件的各种方法<br>最近初学R语言，在R语言读入EXCEL数据格式文件的问题上遇到了困难，经过在网上搜索解决了这一问题，下面归纳几种方法，供大家分享：<br><a id="more"></a><br>第一：R中读取excel文件中的数据的路径：</p>
+<p>假定在您的电脑有一个excel文件，原始的文件路径是：D:\work\data\1，如果直接把这个路径拷贝到R中，就会出现错误，原因是：\是escape character（转义符），&#92;&#92;才是真正的\字符，或者用/因此，在R中有两种方法读取该路径：<br>1：在R中输入一下路径：D:&#92;&#92;work&#92;&#92;data&#92;&#92;1<br>2：在R中输入一下路径：D:&#92;&#92;work&#92;&#92;data&#92;&#92;1</p>
+<p>第二：R中读取excel文件中的数据的方法：</p>
+<p>read.table(),read.csv(),read.delim()直接读取EXCEl文件时，都会遇到一下问题：“在读取‘.xls’的TableHeader时遇到不完全的最后一行”。解决的方法有以下几种：假如文件1.1中是一个6乘以2的矩阵，元素为：</p>
+<p>1 23<br>2 24<br>3 25<br>4 26<br>5 27<br>6 28 </p>
+<p>方法1：xls另存为csv格式然后用read.csv：<br>具体过程如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&gt; data&lt;-read.csv(<span class="string">"D:\\work\\data\\1.csv"</span>)</div><div class="line">&gt; data</div><div class="line">  X1 X23</div><div class="line"><span class="number">1</span>  <span class="number">2</span>    <span class="number">24</span></div><div class="line"><span class="number">2</span>  <span class="number">3</span>    <span class="number">25</span></div><div class="line"><span class="number">3</span>  <span class="number">4</span>    <span class="number">26</span></div><div class="line"><span class="number">4</span>  <span class="number">5</span>    <span class="number">27</span></div><div class="line"><span class="number">5</span>  <span class="number">6</span>    <span class="number">28</span></div><div class="line">&gt; data&lt;-read.csv(<span class="string">"D:\\work\\data\\1.csv"</span>,header = <span class="literal">F</span>)</div><div class="line">&gt; data</div><div class="line">  V1    V2</div><div class="line"><span class="number">1</span>  <span class="number">1</span> <span class="number">23333</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>    <span class="number">24</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>    <span class="number">25</span></div><div class="line"><span class="number">4</span>  <span class="number">4</span>    <span class="number">26</span></div><div class="line"><span class="number">5</span>  <span class="number">5</span>    <span class="number">27</span></div><div class="line"><span class="number">6</span>  <span class="number">6</span>    <span class="number">28</span></div><div class="line">&gt; data&lt;-read.csv(<span class="string">"D:\\work\\data\\1.csv"</span>,header = <span class="literal">T</span>)</div><div class="line">&gt; data</div><div class="line">  X1 X23333</div><div class="line"><span class="number">1</span>  <span class="number">2</span>    <span class="number">24</span></div><div class="line"><span class="number">2</span>  <span class="number">3</span>    <span class="number">25</span></div><div class="line"><span class="number">3</span>  <span class="number">4</span>    <span class="number">26</span></div><div class="line"><span class="number">4</span>  <span class="number">5</span>    <span class="number">27</span></div><div class="line"><span class="number">5</span>  <span class="number">6</span>    <span class="number">28</span></div></pre></td></tr></table></figure>
+
+<p>也就是说header = T（TURE）是默认的状态，在这默认状态下，输出的data矩阵是一个5乘以2的矩阵，第一行作为了data的名字，如果header = F（FALSE），则会现实原始的矩阵结果。</p>
+<p>方法2：xls另存为txt格式然后用read.table：<br>如例子所示：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt; data&lt;-read.table(<span class="string">"D:\\work\\data\\1.txt"</span>,header = <span class="literal">T</span>)</div><div class="line">&gt; data</div><div class="line">  X1 X23</div><div class="line"><span class="number">1</span>  <span class="number">2</span>  <span class="number">24</span></div><div class="line"><span class="number">2</span>  <span class="number">3</span>  <span class="number">25</span></div><div class="line"><span class="number">3</span>  <span class="number">4</span>  <span class="number">26</span></div><div class="line"><span class="number">4</span>  <span class="number">5</span>  <span class="number">27</span></div><div class="line"><span class="number">5</span>  <span class="number">6</span>  <span class="number">28</span></div><div class="line">&gt; data&lt;-read.table(<span class="string">"D:\\work\\data\\1.txt"</span>,header = <span class="literal">F</span>)</div><div class="line">&gt; data</div><div class="line">  V1 V2</div><div class="line"><span class="number">1</span>  <span class="number">1</span> <span class="number">23</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span> <span class="number">24</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span> <span class="number">25</span></div><div class="line"><span class="number">4</span>  <span class="number">4</span> <span class="number">26</span></div><div class="line"><span class="number">5</span>  <span class="number">5</span> <span class="number">27</span></div><div class="line"><span class="number">6</span>  <span class="number">6</span> <span class="number">28</span></div></pre></td></tr></table></figure>
+
+<p>方法3：打开EXCEL，全选里面的内容，点击复制，然后在R中输入一下命令：</p>
+<p>data &lt;- read.table(“clipboard”, header = T, sep = ‘\t’)<br>结果如下所示：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt; data &lt;- read.table(<span class="string">"clipboard"</span>, header = <span class="literal">T</span>, sep = <span class="string">'\t'</span>)</div><div class="line">&gt; data</div><div class="line">  X1 X23</div><div class="line"><span class="number">1</span>  <span class="number">2</span>  <span class="number">24</span></div><div class="line"><span class="number">2</span>  <span class="number">3</span>  <span class="number">25</span></div><div class="line"><span class="number">3</span>  <span class="number">4</span>  <span class="number">26</span></div><div class="line"><span class="number">4</span>  <span class="number">5</span>  <span class="number">27</span></div><div class="line"><span class="number">5</span>  <span class="number">6</span>  <span class="number">28</span></div><div class="line">&gt; data &lt;- read.table(<span class="string">"clipboard"</span>, header = <span class="literal">F</span>, sep = <span class="string">'\t'</span>)</div><div class="line">&gt; data</div><div class="line">  V1 V2</div><div class="line"><span class="number">1</span>  <span class="number">1</span> <span class="number">23</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span> <span class="number">24</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span> <span class="number">25</span></div><div class="line"><span class="number">4</span>  <span class="number">4</span> <span class="number">26</span></div><div class="line"><span class="number">5</span>  <span class="number">5</span> <span class="number">27</span></div><div class="line"><span class="number">6</span>  <span class="number">6</span> <span class="number">28</span></div></pre></td></tr></table></figure>
+
+<p>使用这种方法的时候一定要注意复制！剪切板里面没有内容是无法运行的！以上是三种方法，如果还有别的更好的，请大家补充，谢谢！</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[R语言读取EXCEL文件的各种方法]]>
+    
+    </summary>
+    
+      <category term="R" scheme="http://www.cognize.me/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[R中的逻辑运算符&, &&, |, ||]]></title>
+    <link href="http://www.cognize.me/2015/06/11/rlogic/"/>
+    <id>http://www.cognize.me/2015/06/11/rlogic/</id>
+    <published>2015-06-11T13:33:15.000Z</published>
+    <updated>2015-08-13T03:47:49.000Z</updated>
+    <content type="html"><![CDATA[<p>注：本文为转载，原文地址：<em><a href="http://blog.qiuworld.com:8080/archives/2921" target="_blank" rel="external">http://blog.qiuworld.com:8080/archives/2921</a></em><br>在R中，逻辑运算符(logical operator)有!, &amp;, &amp;&amp;, |, ||, xor, isTRUE等等。</p>
+<p>问题：&amp;与&amp;&amp;, |与||有什么区别呢？它们是否是一致的呢？</p>
+<p>答：否。我们将&amp;和|称为短逻辑符，&amp;&amp;及||称为长逻辑符。长逻辑符只比较左边和右边的第一个元素，而短逻辑符会比较所以的。我们来看示例：<br><a id="more"></a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt; a&lt;-c(<span class="literal">TRUE</span>, <span class="literal">FALSE</span>, <span class="literal">TRUE</span>, <span class="literal">FALSE</span>)</div><div class="line">&gt; b&lt;-c(<span class="literal">FALSE</span>, <span class="literal">FALSE</span>, <span class="literal">TRUE</span>, <span class="literal">TRUE</span>)</div><div class="line">&gt; c&lt;-c(<span class="literal">TRUE</span>, <span class="literal">FALSE</span>, <span class="literal">FALSE</span>, <span class="literal">FALSE</span>)</div><div class="line">&gt; a & b</div><div class="line">[<span class="number">1</span>] <span class="literal">FALSE</span> <span class="literal">FALSE</span>  <span class="literal">TRUE</span> <span class="literal">FALSE</span></div><div class="line">&gt; a && b</div><div class="line">[<span class="number">1</span>] <span class="literal">FALSE</span></div><div class="line">&gt; a & c</div><div class="line">[<span class="number">1</span>]  <span class="literal">TRUE</span> <span class="literal">FALSE</span> <span class="literal">FALSE</span> <span class="literal">FALSE</span></div><div class="line">&gt; a && c</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line">&gt; a | b</div><div class="line">[<span class="number">1</span>]  <span class="literal">TRUE</span> <span class="literal">FALSE</span>  <span class="literal">TRUE</span>  <span class="literal">TRUE</span></div><div class="line">&gt; a || b</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line">&gt; a | c</div><div class="line">[<span class="number">1</span>]  <span class="literal">TRUE</span> <span class="literal">FALSE</span>  <span class="literal">TRUE</span> <span class="literal">FALSE</span></div><div class="line">&gt; a || c</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div></pre></td></tr></table></figure>
+
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>注：本文为转载，原文地址：<em><a href="http://blog.qiuworld.com:8080/archives/2921" target="_blank" rel="external">http://blog.qiuworld.com:8080/archives/2921</a></em><br>在R中，逻辑运算符(logical operator)有!, &amp;, &amp;&amp;, |, ||, xor, isTRUE等等。</p>
+<p>问题：&amp;与&amp;&amp;, |与||有什么区别呢？它们是否是一致的呢？</p>
+<p>答：否。我们将&amp;和|称为短逻辑符，&amp;&amp;及||称为长逻辑符。长逻辑符只比较左边和右边的第一个元素，而短逻辑符会比较所以的。我们来看示例：<br>]]>
+    
+    </summary>
+    
+      <category term="R" scheme="http://www.cognize.me/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[使用vundle进行插件管理]]></title>
+    <link href="http://www.cognize.me/2015/04/02/installVundle/"/>
+    <id>http://www.cognize.me/2015/04/02/installVundle/</id>
+    <published>2015-04-02T13:34:09.000Z</published>
+    <updated>2015-08-13T03:43:43.000Z</updated>
+    <content type="html"><![CDATA[<p>注：本文为转载，原文地址：<em><a href="http://www.jianshu.com/p/mHUR4e" target="_blank" rel="external">http://www.jianshu.com/p/mHUR4e</a></em><br>vundle是一款用于管理vim插件的插件。在Linux下，vundle的安装方法如下：</p>
+<h3 id="1-_安装vim（如果你还没有安装的话）"><strong>1.　安装vim（如果你还没有安装的话）</strong></h3>
+<h3 id="2-_在home目录下创建-vim文件夹和-vimrc文件"><strong>2.　在home目录下创建.vim文件夹和.vimrc文件</strong></h3>
+<h3 id="3-_下载安装vundle"><strong>3.　下载安装vundle</strong></h3>
+<a id="more"></a>
+<p><pre><code><br>$ git clone <a href="https://github.com/gmarik/vundle.git" target="_blank" rel="external">https://github.com/gmarik/vundle.git</a> ~/.vim/bundle/vundle<br></code></pre></p>
+<h3 id="4-_编辑如下内容到-vimrc文件"><strong>4.　编辑如下内容到.vimrc文件</strong></h3>
+<p><pre><code><br>set nocompatible               “ be iMproved<br> filetype off                   “ required!<br> set rtp+=~/.vim/bundle/vundle/<br> call vundle#rc()<br> “ let Vundle manage Vundle<br> “ required!<br> Bundle ‘gmarik/vundle’<br> “ My Bundles here:<br> &#35;以后你想安装什么插件可以写在下面<br> “<br> “ original repos on github<br> &#35;如果你的插件来自github，写在下方，只要作者名/项目名就行了<br> Bundle ‘tpope/vim-fugitive’ #如这里就安装了vim-fugitive这个插件<br> Bundle ‘Lokaltog/vim-easymotion’<br> Bundle ‘rstacruz/sparkup’, {‘rtp’: ‘vim/‘}<br> Bundle ‘tpope/vim-rails.git’<br> “ vim-scripts repos<br> &#35;如果插件来自 vim-scripts，你直接写插件名就行了<br> Bundle ‘L9’<br> Bundle ‘FuzzyFinder’<br> “ non github repos<br> &#35;如使用自己的git库的插件，像下面这样做<br> Bundle ‘git://git.wincent.com/command-t.git’<br> “ git repos on your local machine (ie. when working on your own plugin)<br> Bundle ‘file:///Users/gmarik/path/to/plugin’<br> “ …<br> filetype plugin indent on     “ required!<br> &#35;下面是 vundle的一些命令代会会用到<br> “<br> “ Brief help<br> “ :BundleList          - list configured bundles<br> “ :BundleInstall(!)    - install(update) bundles<br> “ :BundleSearch(!) foo - search(or refresh cache first) for foo<br> “ :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles<br> “<br> “ see :h vundle for more details or wiki for FAQ<br> “ NOTE: comments after Bundle command are not allowed..<br> &#35;这里可以写一些你自己的配置</code></pre></p>
+<h3 id="5-_安装你的插件"><strong>5.　安装你的插件</strong></h3>
+<p>（1）保存退出当前的vim<br>（2）重新打开vim，输入命令:BundleInstall,然后就开始安装你的插件了。</p>
+<h3 id="6-_如何移除插件"><strong>6.　如何移除插件</strong></h3>
+<p>（1）编辑.vimrc文件移除的你要移除的插件行<br>（2）保存退出当前的vim<br>（3）重新打开vim，输入命令:BundleClean。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>注：本文为转载，原文地址：<em><a href="http://www.jianshu.com/p/mHUR4e" target="_blank" rel="external">http://www.jianshu.com/p/mHUR4e</a></em><br>vundle是一款用于管理vim插件的插件。在Linux下，vundle的安装方法如下：</p>
+<h3 id="1-_安装vim（如果你还没有安装的话）"><strong>1.　安装vim（如果你还没有安装的话）</strong></h3>
+<h3 id="2-_在home目录下创建-vim文件夹和-vimrc文件"><strong>2.　在home目录下创建.vim文件夹和.vimrc文件</strong></h3>
+<h3 id="3-_下载安装vundle"><strong>3.　下载安装vundle</strong></h3>
+]]>
+    
+    </summary>
+    
+      <category term="vim" scheme="http://www.cognize.me/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[windows下gvim中文乱码解决方案]]></title>
+    <link href="http://www.cognize.me/2015/04/02/winVim/"/>
+    <id>http://www.cognize.me/2015/04/02/winVim/</id>
+    <published>2015-04-02T13:20:36.000Z</published>
+    <updated>2015-08-16T09:01:56.000Z</updated>
+    <content type="html"><![CDATA[<p>注：本文为转载，原文地址：<em><a href="http://rongmayisheng.com/post/windows下gvim中文乱码解决方案" target="_blank" rel="external">http://rongmayisheng.com/post/windows下gvim中文乱码解决方案</a></em></p>
+<p>网罗了一些网上的解决windows下gvim中文乱码的解决方案，都试了一遍，可惜都不能完全解决我的所有问题，最后我综合一下网上的两种方案，得到了最后完全解决我的中文乱码问题的方案，配置很简单，就是把下面的配置直接copy到C:Program Files (x86)Vim_vimrc文件的开头。（下面第一行配置可以把gvim的字符弄得好看一点）<br><a id="more"></a></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">set guifont=Consolas:h12:cANSI</div><div class="line">set encoding=utf-8</div><div class="line">set fileencodings=utf-8,chinese</div><div class="line">set termencoding=utf-8</div><div class="line">if has("win32")</div><div class="line">set fileencoding=chinese</div><div class="line">else</div><div class="line">set fileencoding=utf-8</div><div class="line">endif</div><div class="line">"解决菜单乱码</div><div class="line">source $VIMRUNTIME/delmenu.vim</div><div class="line">source $VIMRUNTIME/menu.vim</div><div class="line">"解决consle输出乱码</div><div class="line">language messages zh_CN.utf-8</div></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="更新：">更新：</h3>
+<p>上面的代码是在win8.1测试的，可以解决乱码问题，现在我的系统是win10，添加上述代码仍然会有乱码，后来终于找到了解决方法，如下：<br>再在上述代码下添加字体设置即可，即：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"设置字体</div><div class="line">"set guifont=楷体:h10:cGB2312</div><div class="line">set guifont=KaiTi:h10:cGB2312</div></pre></td></tr></table></figure>
+
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>注：本文为转载，原文地址：<em><a href="http://rongmayisheng.com/post/windows下gvim中文乱码解决方案" target="_blank" rel="external">http://rongmayisheng.com/post/windows下gvim中文乱码解决方案</a></em></p>
+<p>网罗了一些网上的解决windows下gvim中文乱码的解决方案，都试了一遍，可惜都不能完全解决我的所有问题，最后我综合一下网上的两种方案，得到了最后完全解决我的中文乱码问题的方案，配置很简单，就是把下面的配置直接copy到C:Program Files (x86)Vim_vimrc文件的开头。（下面第一行配置可以把gvim的字符弄得好看一点）<br>]]>
+    
+    </summary>
+    
+      <category term="vim" scheme="http://www.cognize.me/tags/vim/"/>
+    
+  </entry>
+  
+</feed>

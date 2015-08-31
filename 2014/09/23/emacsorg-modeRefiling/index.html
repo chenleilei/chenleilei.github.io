@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="3opA0XIxm3" />
+  <meta name="google-site-verification" content="Hhy5FdvsKUW9JERTVUPgWs42wAXDnZGY2oqSwpVv2SI" />
+  <meta name="360-site-verification" content="6f75b775c7e547843018a1a0bfb26657" />
+  <meta name="robots" content="nofollow"/>
+  
+  <title>emacs之org-mode的转接（Refiling） | 认知自我</title>
+  <meta name="author" content="Chilly">
+  
+  <meta name="description" content="据说emacs的org-mode是最好的任务管理器，心向往之，于是最近学了一段时间。作为小白，我不敢说它是最好的，只能说它是适合我的。">
+  
+  
+  <meta name="keywords" content="emacs,数据分析,数据挖掘,R语言,Data mining,hexo">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="emacs之org-mode的转接（Refiling）"/>
+  <meta property="og:site_name" content="认知自我"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="认知自我" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">认知自我</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/tags/R">R语言</a></li>
+    
+      <li><a href="/about">关于</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-09-23T07:05:17.000Z"><a href="/2014/09/23/emacsorg-modeRefiling/">9月 23 2014</a></time>
+      
+      
+  
+    <h1 class="title">emacs之org-mode的转接（Refiling）</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>　　据说emacs的org-mode是最好的任务管理器，心向往之，于是最近学了一段时间。作为小白，我不敢说它是最好的，只能说<br>它是适合我的。<a id="more"></a><br>　　看了很多org-mode的教程，思想大体相似，就算创建几个.org的文件，如task.org、finished.org、project.org等，分别存放<br>要完成的任务、已完成的任务以及要做的项目等信息。比如我把一些公司的工作等任务写到了task.org中，等到有的任务完成了，<br>就把改任务转移到finished.org中。当初我以为是自己手动的把task.org中的那个任务剪切了，然后在打开finished.org，并将内容<br>粘贴到finished.org中，实现任务的转换。现在想起来，觉得自己的想法它可笑了，太低效了。<br>　　其实,org-mode中提供了不同任务的转接功能。我们通过快捷键可以轻松的完成同一个文件在不同标题下的转接以及在不同文件<br>间的转接。本功能的英文原称是Refiling，即转接。<br>　　关于转接功能，网上的资料很少，大都是一代而过。经过不断的寻找与尝试，我终于找到了配置的源代码，我们只需要将其拷贝<br>到配置文件中即可使用。如果你用的emacs中有.emacs文件，将源地貌直接拷贝到.emacs上即可。我用的是Steve Purcell的配置，<br>并没有.emacs文件，如果添加.emacs文件为使Steve Purcell的配置失效，但我们可以在custom.el中配置，将配置代码加入custom.el<br>即可。<br>　　配置代码如下：</p>
+<p>代码1：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(setq org-agenda-files (list "~/doc/org/inbox.org"</div><div class="line">                             "~/doc/org/task.org"</div><div class="line">                             "~/doc/org/finished.org"</div><div class="line">                             "~/doc/org/project.org"))</div></pre></td></tr></table></figure>
+
+<p>代码2：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">; Targets include this file and any file contributing to the agenda - up to 9 levels deep</div><div class="line">(setq org-refile-targets (quote ((nil :maxlevel . 9)</div><div class="line">                                 (org-agenda-files :maxlevel . 9))))</div><div class="line"></div><div class="line">; Use full outline paths for refile targets - we file directly with IDO</div><div class="line">(setq org-refile-use-outline-path t)</div><div class="line"></div><div class="line">; Targets complete directly with IDO</div><div class="line">(setq org-outline-path-complete-in-steps nil)</div><div class="line"></div><div class="line">; Allow refile to create parent tasks with confirmation</div><div class="line">(setq org-refile-allow-creating-parent-nodes (quote confirm))</div><div class="line"></div><div class="line">; Use IDO for both buffer and file completion and ido-everywhere to t</div><div class="line">(setq org-completion-use-ido t)</div><div class="line">(setq ido-everywhere t)</div><div class="line">(setq ido-max-directory-size 100000)</div><div class="line">(ido-mode (quote both))</div><div class="line">; Use the current window when visiting files and buffers with ido</div><div class="line">(setq ido-default-file-method 'selected-window)</div><div class="line">(setq ido-default-buffer-method 'selected-window)</div><div class="line">; Use the current window for indirect buffer display</div><div class="line">(setq org-indirect-buffer-display 'current-window)</div><div class="line"></div><div class="line">;;;; Refile settings</div><div class="line">; Exclude DONE state tasks from refile targets</div><div class="line">(defun bh/verify-refile-target ()</div><div class="line">  "Exclude todo keywords with a done state from refile targets"</div><div class="line">  (not (member (nth 2 (org-heading-components)) org-done-keywords)))</div><div class="line"></div><div class="line">(setq org-refile-target-verify-function 'bh/verify-refile-target)</div></pre></td></tr></table></figure>
+
+
+<p>　　上述代码分为两部分，第一部分可以让你能够查看任务。加入第一部分后，按下C-c a t,会列从所有的任务，再按下C-c a t的基础上，再按下1-r,会<br>显示所有TODO的事务，按下2-r会显示所以STARTED的事务，等等，大家可以自己探索。在源代码中，大家要将那些.org文件的地址换成自己的文件<br>地址。<br>　　上述第二部分，大家可以直接拷贝，无需修改。再加入代码后，大家可以加鼠标放到一个事务上，按C-c C-w,屏幕的下方就会显示出所有.org文件名<br>与其事务名的组合，大家可以用左右键选择要转移到的目的地。如，我的鼠标在“** 买书”上，按下C-c C-w，用左右箭头选择“购物/（inbox.org）”，按下<br>回车键，就可以将当前文件中的这个“买书”项转移到inbox.org文件的“购物”项下，达到了不同文件键内容转接的目的，当然同一个文件下也可以进行转接。</p>
+<p>参考文章：<a href="http://doc.norang.ca/org-mode.html#Refiling" target="_blank" rel="external">http://doc.norang.ca/org-mode.html#Refiling</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/emacs/">emacs</a>
+  </div>
+
+        <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<nav id="pagination" >
+    
+    <a href="/2014/09/24/emacsorg-modeNote/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2014/09/20/linuxISO/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="/2014/09/23/emacsorg-modeRefiling/" data-title="emacs之org-mode的转接（Refiling）" data-url="http://www.cognize.me/2014/09/23/emacsorg-modeRefiling/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"cognize"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form>
+    <input type="search" id="cognize-search-input" placeholder="搜索">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Amazon-EC2/">Amazon EC2</a><small>1</small></li>
+  
+    <li><a href="/tags/C/">C#</a><small>8</small></li>
+  
+    <li><a href="/tags/English/">English</a><small>5</small></li>
+  
+    <li><a href="/tags/Godaddy/">Godaddy</a><small>1</small></li>
+  
+    <li><a href="/tags/R/">R</a><small>23</small></li>
+  
+    <li><a href="/tags/RStudio/">RStudio</a><small>1</small></li>
+  
+    <li><a href="/tags/WindowsService/">WindowsService</a><small>1</small></li>
+  
+    <li><a href="/tags/c/">c</a><small>1</small></li>
+  
+    <li><a href="/tags/c/">c++</a><small>1</small></li>
+  
+    <li><a href="/tags/eclipse/">eclipse</a><small>1</small></li>
+  
+    <li><a href="/tags/emacs/">emacs</a><small>13</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>13</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>1</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>6</small></li>
+  
+    <li><a href="/tags/test/">test</a><small>6</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>3</small></li>
+  
+    <li><a href="/tags/vs2010/">vs2010</a><small>1</small></li>
+  
+    <li><a href="/tags/图床/">图床</a><small>2</small></li>
+  
+    <li><a href="/tags/域名/">域名</a><small>1</small></li>
+  
+    <li><a href="/tags/手机/">手机</a><small>1</small></li>
+  
+    <li><a href="/tags/算法/">算法</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/Amazon-EC2/" style="font-size: 10.00px;">Amazon EC2</a><a href="/tags/C/" style="font-size: 17.14px;">C#</a><a href="/tags/English/" style="font-size: 14.29px;">English</a><a href="/tags/Godaddy/" style="font-size: 10.00px;">Godaddy</a><a href="/tags/R/" style="font-size: 20.00px;">R</a><a href="/tags/RStudio/" style="font-size: 10.00px;">RStudio</a><a href="/tags/WindowsService/" style="font-size: 10.00px;">WindowsService</a><a href="/tags/c/" style="font-size: 10.00px;">c</a><a href="/tags/c/" style="font-size: 10.00px;">c++</a><a href="/tags/eclipse/" style="font-size: 10.00px;">eclipse</a><a href="/tags/emacs/" style="font-size: 18.57px;">emacs</a><a href="/tags/hexo/" style="font-size: 18.57px;">hexo</a><a href="/tags/html/" style="font-size: 10.00px;">html</a><a href="/tags/linux/" style="font-size: 15.71px;">linux</a><a href="/tags/test/" style="font-size: 15.71px;">test</a><a href="/tags/vim/" style="font-size: 12.86px;">vim</a><a href="/tags/vs2010/" style="font-size: 10.00px;">vs2010</a><a href="/tags/图床/" style="font-size: 11.43px;">图床</a><a href="/tags/域名/" style="font-size: 10.00px;">域名</a><a href="/tags/手机/" style="font-size: 10.00px;">手机</a><a href="/tags/算法/" style="font-size: 10.00px;">算法</a>
+  </div>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2015/08/25/swirl/">利用swirl包学习R语言</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/25/r-equal/">R语言中判断两个对象是否相等</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/22/msysgiterror/">解决hexo一个奇怪的错误</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/16/win10Gvim/">解决gvim在win10下乱码的问题</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/16/csdnToHexo/">博客迁移</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=5369044986&verifier=351c49c3&dpc=1"></iframe>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Chilly
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','4sCRX4-_8sXRh2c_yhey','2.0.0');
+</script>
+
+</body>
+</html>

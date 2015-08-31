@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="3opA0XIxm3" />
+  <meta name="google-site-verification" content="Hhy5FdvsKUW9JERTVUPgWs42wAXDnZGY2oqSwpVv2SI" />
+  <meta name="360-site-verification" content="6f75b775c7e547843018a1a0bfb26657" />
+  <meta name="robots" content="nofollow"/>
+  
+  <title>Windows服务（C#）显式运行exe程序 | 认知自我</title>
+  <meta name="author" content="Chilly">
+  
+  <meta name="description" content="Windows服务（C#）显式运行exe程序">
+  
+  
+  <meta name="keywords" content="C#, WindowsService, 运行exe,数据分析,数据挖掘,R语言,Data mining,hexo">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Windows服务（C#）显式运行exe程序"/>
+  <meta property="og:site_name" content="认知自我"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="认知自我" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">认知自我</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/tags/R">R语言</a></li>
+    
+      <li><a href="/about">关于</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-11T11:08:00.000Z"><a href="/2015/02/11/windowsservice/">2月 11 2015</a></time>
+      
+      
+  
+    <h1 class="title">Windows服务（C#）显式运行exe程序</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><img src="http://7xknyo.com1.z0.glb.clouddn.com/view/2015-2-11-Windowsservice.jpg?imageView2/1/w/751/h/464" alt=""><br>&emsp;&emsp;一般来讲，用C#运行某个.exe程序，我们都会这样写：</p>
+<p><pre><code>Process.Start(“xxx.exe”)</code></pre><br>&emsp;&emsp;其中，“xxx.exe”表示我们要运行的exe的路径，Process.Start()函数有多种重载，我们这里不再赘述。大多数程序都可以通过以上的代码运行exe程序，但是当我们把我们的“控制台应用程序”转成“Windows服务”后，就会出现问题。<br><a id="more"></a><br>&emsp;&emsp;事实上，在“Windows服务”中，上述代码还是可以运行exe程序的，但是我们看不到。在“控制台应用程序”中，我们可以看到被执行的exe程序，但是到了“Windows服务”中，该exe变成了后台执行，无法与用户进行交互。<br>原因如下：<br>&emsp;&emsp;默认情况下，服务是运行在session0下的，与普通的应用程序不在一个session，所以不能互动，但是我们可以利用函数“CreateProcessAsUser”来创建应用程序session下的进程，从而调用外部exe。<br>Windows服务（C#）显式运行外部exe程序源代码如下：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> System;</div><div class="line"><span class="keyword">using</span> System.Collections.Generic;</div><div class="line"><span class="keyword">using</span> System.Linq;</div><div class="line"><span class="keyword">using</span> System.Text;</div><div class="line"><span class="keyword">using</span> System.Security;</div><div class="line"><span class="keyword">using</span> System.Diagnostics;</div><div class="line"><span class="keyword">using</span> System.Runtime.InteropServices;</div><div class="line">namespace SngjIPS_WindowsService</div><div class="line">{</div><div class="line">    class UserProcess</div><div class="line">    {   <span class="preprocessor">#<span class="keyword">region</span> Structures</span></div><div class="line">        [StructLayout(LayoutKind.Sequential)]</div><div class="line">        <span class="keyword">public</span> <span class="keyword">struct</span> SECURITY_ATTRIBUTES</div><div class="line">        {</div><div class="line">            <span class="keyword">public</span> <span class="keyword">int</span> Length;</div><div class="line">            <span class="keyword">public</span> IntPtr lpSecurityDescriptor;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">bool</span> bInheritHandle;</div><div class="line">        }</div><div class="line">        [StructLayout(LayoutKind.Sequential)]</div><div class="line">        <span class="keyword">public</span> <span class="keyword">struct</span> STARTUPINFO</div><div class="line">        {</div><div class="line">            <span class="keyword">public</span> <span class="keyword">int</span> cb;</div><div class="line">            <span class="keyword">public</span> String lpReserved;</div><div class="line">            <span class="keyword">public</span> String lpDesktop;</div><div class="line">            <span class="keyword">public</span> String lpTitle;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">uint</span> dwX;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">uint</span> dwY;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">uint</span> dwXSize;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">uint</span> dwYSize;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">uint</span> dwXCountChars;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">uint</span> dwYCountChars;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">uint</span> dwFillAttribute;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">uint</span> dwFlags;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">short</span> wShowWindow;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">short</span> cbReserved2;</div><div class="line">            <span class="keyword">public</span> IntPtr lpReserved2;</div><div class="line">            <span class="keyword">public</span> IntPtr hStdInput;</div><div class="line">            <span class="keyword">public</span> IntPtr hStdOutput;</div><div class="line">            <span class="keyword">public</span> IntPtr hStdError;</div><div class="line">        }</div><div class="line">        [StructLayout(LayoutKind.Sequential)]</div><div class="line">        <span class="keyword">public</span> <span class="keyword">struct</span> PROCESS_INFORMATION</div><div class="line">        {</div><div class="line">            <span class="keyword">public</span> IntPtr hProcess;</div><div class="line">            <span class="keyword">public</span> IntPtr hThread;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">uint</span> dwProcessId;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">uint</span> dwThreadId;</div><div class="line">        }</div><div class="line">        <span class="preprocessor">#<span class="keyword">endregion</span></span></div><div class="line">        <span class="preprocessor">#<span class="keyword">region</span> Enumerations</span></div><div class="line">        <span class="keyword">enum</span> TOKEN_TYPE : <span class="keyword">int</span></div><div class="line">        {</div><div class="line">            TokenPrimary = <span class="number">1</span>,</div><div class="line">            TokenImpersonation = <span class="number">2</span></div><div class="line">        }</div><div class="line">        <span class="keyword">enum</span> SECURITY_IMPERSONATION_LEVEL : <span class="keyword">int</span></div><div class="line">        {</div><div class="line">            SecurityAnonymous = <span class="number">0</span>,</div><div class="line">            SecurityIdentification = <span class="number">1</span>,</div><div class="line">            SecurityImpersonation = <span class="number">2</span>,</div><div class="line">            SecurityDelegation = <span class="number">3</span>,</div><div class="line">        }</div><div class="line">        <span class="keyword">enum</span> WTSInfoClass</div><div class="line">        {</div><div class="line">            InitialProgram,</div><div class="line">            ApplicationName,</div><div class="line">            WorkingDirectory,</div><div class="line">            OEMId,</div><div class="line">            SessionId,</div><div class="line">            UserName,</div><div class="line">            WinStationName,</div><div class="line">            DomainName,</div><div class="line">            ConnectState,</div><div class="line">            ClientBuildNumber,</div><div class="line">            ClientName,</div><div class="line">            ClientDirectory,</div><div class="line">            ClientProductId,</div><div class="line">            ClientHardwareId,</div><div class="line">            ClientAddress,</div><div class="line">            ClientDisplay,</div><div class="line">            ClientProtocolType</div><div class="line">        }</div><div class="line">        <span class="preprocessor">#<span class="keyword">endregion</span></span></div><div class="line">        <span class="preprocessor">#<span class="keyword">region</span> Constants</span></div><div class="line">        <span class="keyword">public</span> <span class="keyword">const</span> <span class="keyword">int</span> TOKEN_DUPLICATE = <span class="number">0x0002</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">const</span> <span class="keyword">uint</span> MAXIMUM_ALLOWED = <span class="number">0x2000000</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">const</span> <span class="keyword">int</span> CREATE_NEW_CONSOLE = <span class="number">0x00000010</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">const</span> <span class="keyword">int</span> IDLE_PRIORITY_CLASS = <span class="number">0x40</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">const</span> <span class="keyword">int</span> NORMAL_PRIORITY_CLASS = <span class="number">0x20</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">const</span> <span class="keyword">int</span> HIGH_PRIORITY_CLASS = <span class="number">0x80</span>;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">const</span> <span class="keyword">int</span> REALTIME_PRIORITY_CLASS = <span class="number">0x100</span>;</div><div class="line">        <span class="preprocessor">#<span class="keyword">endregion</span></span></div><div class="line">        <span class="preprocessor">#<span class="keyword">region</span> Win32 API Imports</span></div><div class="line">        [DllImport(<span class="string">"kernel32.dll"</span>, SetLastError = <span class="keyword">true</span>)]</div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">bool</span> <span class="title">CloseHandle</span>(IntPtr hSnapshot);</div><div class="line">        [DllImport(<span class="string">"kernel32.dll"</span>)]</div><div class="line">        <span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">uint</span> WTSGetActiveConsoleSessionId();</div><div class="line">        [DllImport(<span class="string">"wtsapi32.dll"</span>, CharSet = CharSet.Unicode, SetLastError = <span class="keyword">true</span>), SuppressUnmanagedCodeSecurityAttribute]</div><div class="line">        <span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">bool</span> WTSQuerySessionInformation(System.IntPtr hServer, <span class="keyword">int</span> sessionId, WTSInfoClass wtsInfoClass, <span class="keyword">out</span> System.IntPtr ppBuffer, <span class="keyword">out</span> <span class="keyword">uint</span> pBytesReturned);</div><div class="line">        [DllImport(<span class="string">"advapi32.dll"</span>, EntryPoint = <span class="string">"CreateProcessAsUser"</span>, SetLastError = <span class="keyword">true</span>, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]</div><div class="line">        <span class="keyword">public</span> <span class="keyword">extern</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">CreateProcessAsUser</span>(IntPtr hToken, String lpApplicationName, String lpCommandLine, <span class="keyword">ref</span> SECURITY_ATTRIBUTES lpProcessAttributes,</div><div class="line">            <span class="keyword">ref</span> SECURITY_ATTRIBUTES lpThreadAttributes, <span class="keyword">bool</span> bInheritHandle, <span class="keyword">int</span> dwCreationFlags, IntPtr lpEnvironment,</div><div class="line">            String lpCurrentDirectory, <span class="keyword">ref</span> STARTUPINFO lpStartupInfo, <span class="keyword">out</span> PROCESS_INFORMATION lpProcessInformation);</div><div class="line">        [DllImport(<span class="string">"kernel32.dll"</span>)]</div><div class="line">        <span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">bool</span> ProcessIdToSessionId(<span class="keyword">uint</span> dwProcessId, <span class="keyword">ref</span> <span class="keyword">uint</span> pSessionId);</div><div class="line">        [DllImport(<span class="string">"advapi32.dll"</span>, EntryPoint = <span class="string">"DuplicateTokenEx"</span>)]</div><div class="line">        <span class="keyword">public</span> <span class="keyword">extern</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">DuplicateTokenEx</span>(IntPtr ExistingTokenHandle, <span class="keyword">uint</span> dwDesiredAccess,</div><div class="line">            <span class="keyword">ref</span> SECURITY_ATTRIBUTES lpThreadAttributes, <span class="keyword">int</span> TokenType,</div><div class="line">            <span class="keyword">int</span> ImpersonationLevel, <span class="keyword">ref</span> IntPtr DuplicateTokenHandle);</div><div class="line">        [DllImport(<span class="string">"kernel32.dll"</span>)]</div><div class="line">        <span class="keyword">static</span> <span class="keyword">extern</span> IntPtr OpenProcess(<span class="keyword">uint</span> dwDesiredAccess, <span class="keyword">bool</span> bInheritHandle, <span class="keyword">uint</span> dwProcessId);</div><div class="line">        [DllImport(<span class="string">"advapi32"</span>, SetLastError = <span class="keyword">true</span>), SuppressUnmanagedCodeSecurityAttribute]</div><div class="line">        <span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">bool</span> OpenProcessToken(IntPtr ProcessHandle, <span class="keyword">int</span> DesiredAccess, <span class="keyword">ref</span> IntPtr TokenHandle);</div><div class="line">        <span class="preprocessor">#<span class="keyword">endregion</span></span></div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">GetCurrentActiveUser</span>()</div><div class="line">        {</div><div class="line">            IntPtr hServer = IntPtr.Zero, state = IntPtr.Zero;</div><div class="line">            <span class="keyword">uint</span> bCount = <span class="number">0</span>;</div><div class="line">            <span class="comment">// obtain the currently active session id; every logged on user in the system has a unique session id  </span></div><div class="line">            <span class="keyword">uint</span> dwSessionId = WTSGetActiveConsoleSessionId();</div><div class="line">            <span class="keyword">string</span> domain = <span class="keyword">string</span>.Empty, userName = <span class="keyword">string</span>.Empty;</div><div class="line">            <span class="keyword">if</span> (WTSQuerySessionInformation(hServer, (<span class="keyword">int</span>)dwSessionId, WTSInfoClass.DomainName, <span class="keyword">out</span> state, <span class="keyword">out</span> bCount))</div><div class="line">            {</div><div class="line">                domain = Marshal.PtrToStringAuto(state);</div><div class="line">            }</div><div class="line">            <span class="keyword">if</span> (WTSQuerySessionInformation(hServer, (<span class="keyword">int</span>)dwSessionId, WTSInfoClass.UserName, <span class="keyword">out</span> state, <span class="keyword">out</span> bCount))</div><div class="line">            {</div><div class="line">                userName = Marshal.PtrToStringAuto(state);</div><div class="line">            }</div><div class="line">            <span class="keyword">return</span> <span class="keyword">string</span>.Format(<span class="string">"{0}\\{1}"</span>, domain, userName);</div><div class="line">        }</div><div class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span>  </span></div><div class="line">        <span class="comment"><span class="xmlDocTag">///</span> Launches the given application with full admin rights, and in addition bypasses the Vista UAC prompt  </span></div><div class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span>  </span></div><div class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name="applicationName"&gt;</span>The name of the application to launch<span class="xmlDocTag">&lt;/param&gt;</span>  </span></div><div class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name="procInfo"&gt;</span>Process information regarding the launched application that gets returned to the caller<span class="xmlDocTag">&lt;/param&gt;</span>  </span></div><div class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;returns&gt;</span><span class="xmlDocTag">&lt;/returns&gt;</span>  </span></div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">StartProcessAndBypassUAC</span>(String applicationName, String command, <span class="keyword">out</span> PROCESS_INFORMATION procInfo)</div><div class="line">        {</div><div class="line">            <span class="keyword">uint</span> winlogonPid = <span class="number">0</span>;</div><div class="line">            IntPtr hUserTokenDup = IntPtr.Zero, hPToken = IntPtr.Zero, hProcess = IntPtr.Zero;</div><div class="line">            procInfo = <span class="keyword">new</span> PROCESS_INFORMATION();</div><div class="line">            <span class="comment">// obtain the currently active session id; every logged on user in the system has a unique session id  </span></div><div class="line">            <span class="keyword">uint</span> dwSessionId = WTSGetActiveConsoleSessionId();</div><div class="line">            <span class="comment">// obtain the process id of the winlogon process that is running within the currently active session  </span></div><div class="line">            Process[] processes = Process.GetProcessesByName(<span class="string">"winlogon"</span>);</div><div class="line">            <span class="keyword">foreach</span> (Process p <span class="keyword">in</span> processes)</div><div class="line">            {</div><div class="line">                <span class="keyword">if</span> ((<span class="keyword">uint</span>)p.SessionId == dwSessionId)</div><div class="line">                {</div><div class="line">                    winlogonPid = (<span class="keyword">uint</span>)p.Id;</div><div class="line">                }</div><div class="line">            }</div><div class="line">            <span class="comment">// obtain a handle to the winlogon process  </span></div><div class="line">            hProcess = OpenProcess(MAXIMUM_ALLOWED, <span class="keyword">false</span>, winlogonPid);</div><div class="line">            <span class="comment">// obtain a handle to the access token of the winlogon process  </span></div><div class="line">            <span class="keyword">if</span> (!OpenProcessToken(hProcess, TOKEN_DUPLICATE, <span class="keyword">ref</span> hPToken))</div><div class="line">            {</div><div class="line">                CloseHandle(hProcess);</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            }</div><div class="line">            <span class="comment">// Security attibute structure used in DuplicateTokenEx and CreateProcessAsUser  </span></div><div class="line">            <span class="comment">// I would prefer to not have to use a security attribute variable and to just   </span></div><div class="line">            <span class="comment">// simply pass null and inherit (by default) the security attributes  </span></div><div class="line">            <span class="comment">// of the existing token. However, in C# structures are value types and therefore  </span></div><div class="line">            <span class="comment">// cannot be assigned the null value.  </span></div><div class="line">            SECURITY_ATTRIBUTES sa = <span class="keyword">new</span> SECURITY_ATTRIBUTES();</div><div class="line">            sa.Length = Marshal.SizeOf(sa);</div><div class="line">            <span class="comment">// copy the access token of the winlogon process; the newly created token will be a primary token  </span></div><div class="line">            <span class="keyword">if</span> (!DuplicateTokenEx(hPToken, MAXIMUM_ALLOWED, <span class="keyword">ref</span> sa, (<span class="keyword">int</span>)SECURITY_IMPERSONATION_LEVEL.SecurityIdentification, (<span class="keyword">int</span>)TOKEN_TYPE.TokenPrimary, <span class="keyword">ref</span> hUserTokenDup))</div><div class="line">            {</div><div class="line">                CloseHandle(hProcess);</div><div class="line">                CloseHandle(hPToken);</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            }</div><div class="line">            <span class="comment">// By default CreateProcessAsUser creates a process on a non-interactive window station, meaning  </span></div><div class="line">            <span class="comment">// the window station has a desktop that is invisible and the process is incapable of receiving  </span></div><div class="line">            <span class="comment">// user input. To remedy this we set the lpDesktop parameter to indicate we want to enable user   </span></div><div class="line">            <span class="comment">// interaction with the new process.  </span></div><div class="line">            STARTUPINFO si = <span class="keyword">new</span> STARTUPINFO();</div><div class="line">            si.cb = (<span class="keyword">int</span>)Marshal.SizeOf(si);</div><div class="line">            si.lpDesktop = <span class="string">@"winsta0\default"</span>; <span class="comment">// interactive window station parameter; basically this indicates that the process created can display a GUI on the desktop  </span></div><div class="line">            <span class="comment">// flags that specify the priority and creation method of the process  </span></div><div class="line">            <span class="keyword">int</span> dwCreationFlags = NORMAL_PRIORITY_CLASS | CREATE_NEW_CONSOLE;</div><div class="line">            <span class="comment">// create a new process in the current user's logon session  </span></div><div class="line">            <span class="keyword">bool</span> result = CreateProcessAsUser(hUserTokenDup,        <span class="comment">// client's access token  </span></div><div class="line">                                            applicationName,        <span class="comment">// file to execute  </span></div><div class="line">                                            command,                <span class="comment">// command line  </span></div><div class="line">                                            <span class="keyword">ref</span> sa,                 <span class="comment">// pointer to process SECURITY_ATTRIBUTES  </span></div><div class="line">                                            <span class="keyword">ref</span> sa,                 <span class="comment">// pointer to thread SECURITY_ATTRIBUTES  </span></div><div class="line">                                            <span class="keyword">false</span>,                  <span class="comment">// handles are not inheritable  </span></div><div class="line">                                            dwCreationFlags,        <span class="comment">// creation flags  </span></div><div class="line">                                            IntPtr.Zero,            <span class="comment">// pointer to new environment block   </span></div><div class="line">                                            <span class="keyword">null</span>,                   <span class="comment">// name of current directory   </span></div><div class="line">                                            <span class="keyword">ref</span> si,                 <span class="comment">// pointer to STARTUPINFO structure  </span></div><div class="line">                                            <span class="keyword">out</span> procInfo            <span class="comment">// receives information about new process  </span></div><div class="line">                                            );</div><div class="line">            <span class="comment">// invalidate the handles  </span></div><div class="line">            CloseHandle(hProcess);</div><div class="line">            CloseHandle(hPToken);</div><div class="line">            CloseHandle(hUserTokenDup);</div><div class="line">            <span class="keyword">return</span> result; <span class="comment">// return the result  </span></div><div class="line">        }</div><div class="line">    }</div><div class="line"> }</div></pre></td></tr></table></figure>
+
+<p>调用如下：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UserProcess.PROCESS_INFORMATION pInfo = <span class="keyword">new</span> UserProcess.PROCESS_INFORMATION();</div><div class="line">UserProcess.StartProcessAndBypassUAC(<span class="string">"xxx.exe"</span>, <span class="keyword">string</span>.Empty, <span class="keyword">out</span> pInfo);</div></pre></td></tr></table></figure>
+
+<p><font color="red">注意，该程序一定要写在“Windows服务”程序的代码中才有效，如果您把本程序代码写在“控制台应用程序”中运行是没有任何效果的。</font><br>参考文章：<em><a href="http://bbs.csdn.net/topics/390431360" target="_blank" rel="external">http://bbs.csdn.net/topics/390431360</a></em><br><em><a href="http://chinaforce2008.blog.163.com/blog/static/32284182013112644445536/" target="_blank" rel="external">http://chinaforce2008.blog.163.com/blog/static/32284182013112644445536/</a></em></p>
+<p>原创文章如转载，请注明本文链接:<a href="http://cognize.me/2015/02/11/windowsservice/" target="_blank" rel="external">http://cognize.me/2015/02/11/windowsservice/</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/C/">C#</a>, <a href="/tags/WindowsService/">WindowsService</a>
+  </div>
+
+        <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<nav id="pagination" >
+    
+    <a href="/2015/03/26/installFirefox/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2015/02/07/words4/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="/2015/02/11/windowsservice/" data-title="Windows服务（C#）显式运行exe程序" data-url="http://www.cognize.me/2015/02/11/windowsservice/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"cognize"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form>
+    <input type="search" id="cognize-search-input" placeholder="搜索">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Amazon-EC2/">Amazon EC2</a><small>1</small></li>
+  
+    <li><a href="/tags/C/">C#</a><small>8</small></li>
+  
+    <li><a href="/tags/English/">English</a><small>5</small></li>
+  
+    <li><a href="/tags/Godaddy/">Godaddy</a><small>1</small></li>
+  
+    <li><a href="/tags/R/">R</a><small>23</small></li>
+  
+    <li><a href="/tags/RStudio/">RStudio</a><small>1</small></li>
+  
+    <li><a href="/tags/WindowsService/">WindowsService</a><small>1</small></li>
+  
+    <li><a href="/tags/c/">c</a><small>1</small></li>
+  
+    <li><a href="/tags/c/">c++</a><small>1</small></li>
+  
+    <li><a href="/tags/eclipse/">eclipse</a><small>1</small></li>
+  
+    <li><a href="/tags/emacs/">emacs</a><small>13</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>13</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>1</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>6</small></li>
+  
+    <li><a href="/tags/test/">test</a><small>6</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>3</small></li>
+  
+    <li><a href="/tags/vs2010/">vs2010</a><small>1</small></li>
+  
+    <li><a href="/tags/图床/">图床</a><small>2</small></li>
+  
+    <li><a href="/tags/域名/">域名</a><small>1</small></li>
+  
+    <li><a href="/tags/手机/">手机</a><small>1</small></li>
+  
+    <li><a href="/tags/算法/">算法</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/Amazon-EC2/" style="font-size: 10.00px;">Amazon EC2</a><a href="/tags/C/" style="font-size: 17.14px;">C#</a><a href="/tags/English/" style="font-size: 14.29px;">English</a><a href="/tags/Godaddy/" style="font-size: 10.00px;">Godaddy</a><a href="/tags/R/" style="font-size: 20.00px;">R</a><a href="/tags/RStudio/" style="font-size: 10.00px;">RStudio</a><a href="/tags/WindowsService/" style="font-size: 10.00px;">WindowsService</a><a href="/tags/c/" style="font-size: 10.00px;">c</a><a href="/tags/c/" style="font-size: 10.00px;">c++</a><a href="/tags/eclipse/" style="font-size: 10.00px;">eclipse</a><a href="/tags/emacs/" style="font-size: 18.57px;">emacs</a><a href="/tags/hexo/" style="font-size: 18.57px;">hexo</a><a href="/tags/html/" style="font-size: 10.00px;">html</a><a href="/tags/linux/" style="font-size: 15.71px;">linux</a><a href="/tags/test/" style="font-size: 15.71px;">test</a><a href="/tags/vim/" style="font-size: 12.86px;">vim</a><a href="/tags/vs2010/" style="font-size: 10.00px;">vs2010</a><a href="/tags/图床/" style="font-size: 11.43px;">图床</a><a href="/tags/域名/" style="font-size: 10.00px;">域名</a><a href="/tags/手机/" style="font-size: 10.00px;">手机</a><a href="/tags/算法/" style="font-size: 10.00px;">算法</a>
+  </div>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2015/08/25/swirl/">利用swirl包学习R语言</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/25/r-equal/">R语言中判断两个对象是否相等</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/22/msysgiterror/">解决hexo一个奇怪的错误</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/16/win10Gvim/">解决gvim在win10下乱码的问题</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/16/csdnToHexo/">博客迁移</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=5369044986&verifier=351c49c3&dpc=1"></iframe>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Chilly
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','4sCRX4-_8sXRh2c_yhey','2.0.0');
+</script>
+
+</body>
+</html>

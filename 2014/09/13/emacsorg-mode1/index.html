@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="3opA0XIxm3" />
+  <meta name="google-site-verification" content="Hhy5FdvsKUW9JERTVUPgWs42wAXDnZGY2oqSwpVv2SI" />
+  <meta name="360-site-verification" content="6f75b775c7e547843018a1a0bfb26657" />
+  <meta name="robots" content="nofollow"/>
+  
+  <title>只管去做—用emacs的org-mode做时间管理(1.收集、处理) | 认知自我</title>
+  <meta name="author" content="Chilly">
+  
+  <meta name="description" content="根据只管去做(GTD)的理念，你需要一个可靠的外部系统来接管所有可能扰乱你心绪的事情，而你的心中应该是无所牵挂，可以”只管去做”的。">
+  
+  
+  <meta name="keywords" content="emacs,数据分析,数据挖掘,R语言,Data mining,hexo">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="只管去做—用emacs的org-mode做时间管理(1.收集、处理)"/>
+  <meta property="og:site_name" content="认知自我"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="认知自我" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">认知自我</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/tags/R">R语言</a></li>
+    
+      <li><a href="/about">关于</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-09-13T06:38:44.000Z"><a href="/2014/09/13/emacsorg-mode1/">9月 13 2014</a></time>
+      
+      
+  
+    <h1 class="title">只管去做—用emacs的org-mode做时间管理(1.收集、处理)</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>根据只管去做(GTD)的理念，你需要一个可靠的外部系统来接管所有可能扰乱你心绪的事情，而你的心中应该是无所牵挂，可以”只管去做”的。<br><a id="more"></a><br>在这里，org-mode自然就是那个可靠的外部系统了，这在emacs23下是自带的，稍稍在.emacs下加点配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))</div><div class="line">(define-key global-map "\C-cl" 'org-store-link)</div><div class="line">(define-key global-map "\C-ca" 'org-agenda)</div><div class="line">(setq org-hide-leading-stars t)</div><div class="line">(setq org-log-done t)</div></pre></td></tr></table></figure>
+
+<p>下面就正式开始吧，先建个文件夹，如~/.org/，在里面新建org文件，比如与工作无关的个人事务都放在self.org里，它的大概样子如下(第一行以后再解释)：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">+TAGS: EASY(e) COMM(c) OFFICE(o) READ(r) URGENT(u) FUTURE(f) WAIT(w) MEMO(m)</div><div class="line">* 阅读、充电</div><div class="line">** 计算机</div><div class="line">* 强身健体</div><div class="line">** 力量、健美</div><div class="line">** 有氧运动</div><div class="line">* 人际关系</div><div class="line">* Basket</div><div class="line">** 临时篮子</div></pre></td></tr></table></figure>
+
+<p>然后就开始静下心来，耐心地，自下而上地将你所有萦绕于心中的所有事情转移到这个系统中去。记住是所有，不要留任何隐患，所有具体不具体的，成熟不成熟的都要写下来，总之就是不要让它再幽魂不散地骚扰你的心境了。</p>
+<p>比如说，你今天发现图书馆新开的自习室里有很多你感兴趣的新书，总时不时地觉得该提高一下表达能力、写作能力、演讲能力，还有一堆书想看，希望能培养良好的阅读习惯，还想学用blender作三维建模，想起北京秋天不长了，该出去享受一下阳光顺便活动一下生锈的筋骨了，想起本科同学好久不联系了。。。都写下来吧，不管是些具体的事、模糊的意向还是些不成熟的想法，先记下来再说。初次做这个大概需要一两个小时，写下上百条都不要奇怪，往后就要靠平常注意积累了。</p>
+<p>以下仍然只是个示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">#+TAGS: EASY(e) COMM(c) OFFICE(o) READING(r) URGENT(u) FUTURE(f) WAIT(w) MEMO(m)</div><div class="line">* 阅读、充电</div><div class="line">** 养成阅读习惯</div><div class="line">*** 没有条件创造条件也要上，晚上远离电脑两个小时，去图书馆 :EASY:</div><div class="line">*** TODO 下载感兴趣的jar电子书传到手机上，利用一切间隙看</div><div class="line">** 计算机</div><div class="line">*** 阅读<span class="tag">&lt;<span class="title">Mastering</span> <span class="attribute">Algorithms</span> <span class="attribute">with</span> <span class="attribute">perl</span>&gt;</span>         :FUTURE:</div><div class="line">*** 学习blender三维建模                         :FUTURE:</div><div class="line">** 英语</div><div class="line">*** 千万别学英语                                 :EASY:</div><div class="line">  - [ ] 每天反复听同一盒磁带</div><div class="line">  - [ ] 反复听一个月后听写、跟读</div><div class="line">* 强身健体</div><div class="line">** 力量、健美</div><div class="line">*** TODO 去趟天成买对哑铃                         :EASY:</div><div class="line">** 有氧运动</div><div class="line">*** 去八达岭残长城转转</div><div class="line">*** 参加一次1.3+级的穿越</div><div class="line">*** 骑车绕北京城半圈</div><div class="line">* 人际关系</div><div class="line">*** 好久没见老同学了</div><div class="line">* Basket</div><div class="line">** 临时篮子</div><div class="line">*** 文献中心二楼的研究生自习室很好，很强大         :MEMO:</div><div class="line">*** 提高一下表达、写作能力                         :URGENT:</div><div class="line">*** 提高演讲能力                                 :FUTURE:</div><div class="line">*** 阅读<span class="tag">&lt;<span class="title">哲学的故事</span>&gt;</span>                             :READING:</div></pre></td></tr></table></figure>
+
+<p>所有事项都以&#42;开头，&#42;数目代表了级数，org-mode其实就是一种outline mode，带&#42;的是outline项。org-mode支持对outline项作以下操作(鼠标在outline项上)：</p>
+<ul>
+<li>TAB折叠、打开子项，Shift-TAB折叠、打开整个文档</li>
+<li>C-c C-c指定当前项标签，如上面的:URGENT:, :MEMO:等，方便以后分类查找</li>
+<li>M-左右方向键减/增&#42;数目</li>
+<li>M-上下方向键移动当前项位置</li>
+<li>C-c C-t设定当前项状态为TODO DONE或空白</li>
+<li>C-c C-s规划时间(只建议用于约会或非此时不可的情形)</li>
+<li>C-c C-d设定最后期限(deadline)</li>
+</ul>
+<p>好了，现在假设你现在已经有了一个长达几百行的列表，千万别让它就这么堆着，那样你就前功尽弃了，好不容易从脑中清除出来的东西可能过不多久又重新萦绕在你脑中。你现在要做的便是清理你放在这个你所依赖的系统里的所有信息，具体过程如下:<br>1.　逐一处理，马上作出决定，不要积压<br>2.　如果认定是垃圾，删除<br>3.　如果可委派别人，委派出去，将该项标签设为:WAIT:，这个标签下的事情都不用你干(爽吧)<br>4.　2分钟可完成的立刻干掉<br>5.　应该尽快采取行动但超过2分钟的，C-c C-t设为TODO<br>6.　这是一件不具体的事务(如养成阅读习惯)，那么确定如何实施下一步(创造条件，下载jar书)<br>7.　也许在将来再做的事设标签为:FUTURE:<br>8.　不要剩余有未处理的事项，以后注意随时添加，及时检查处理(比如前面的例子就还有四、五项未处理，不应该)</p>
+<p>转载地址：<a href="http://blog.chinaunix.net/uid-342902-id-2416116.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-342902-id-2416116.html</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/emacs/">emacs</a>
+  </div>
+
+        <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<nav id="pagination" >
+    
+    <a href="/2014/09/13/emacsorg-mode2/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2014/09/13/emacsorg-mode0/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="/2014/09/13/emacsorg-mode1/" data-title="只管去做—用emacs的org-mode做时间管理(1.收集、处理)" data-url="http://www.cognize.me/2014/09/13/emacsorg-mode1/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"cognize"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form>
+    <input type="search" id="cognize-search-input" placeholder="搜索">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Amazon-EC2/">Amazon EC2</a><small>1</small></li>
+  
+    <li><a href="/tags/C/">C#</a><small>8</small></li>
+  
+    <li><a href="/tags/English/">English</a><small>5</small></li>
+  
+    <li><a href="/tags/Godaddy/">Godaddy</a><small>1</small></li>
+  
+    <li><a href="/tags/R/">R</a><small>23</small></li>
+  
+    <li><a href="/tags/RStudio/">RStudio</a><small>1</small></li>
+  
+    <li><a href="/tags/WindowsService/">WindowsService</a><small>1</small></li>
+  
+    <li><a href="/tags/c/">c</a><small>1</small></li>
+  
+    <li><a href="/tags/c/">c++</a><small>1</small></li>
+  
+    <li><a href="/tags/eclipse/">eclipse</a><small>1</small></li>
+  
+    <li><a href="/tags/emacs/">emacs</a><small>13</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>13</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>1</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>6</small></li>
+  
+    <li><a href="/tags/test/">test</a><small>6</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>3</small></li>
+  
+    <li><a href="/tags/vs2010/">vs2010</a><small>1</small></li>
+  
+    <li><a href="/tags/图床/">图床</a><small>2</small></li>
+  
+    <li><a href="/tags/域名/">域名</a><small>1</small></li>
+  
+    <li><a href="/tags/手机/">手机</a><small>1</small></li>
+  
+    <li><a href="/tags/算法/">算法</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/Amazon-EC2/" style="font-size: 10.00px;">Amazon EC2</a><a href="/tags/C/" style="font-size: 17.14px;">C#</a><a href="/tags/English/" style="font-size: 14.29px;">English</a><a href="/tags/Godaddy/" style="font-size: 10.00px;">Godaddy</a><a href="/tags/R/" style="font-size: 20.00px;">R</a><a href="/tags/RStudio/" style="font-size: 10.00px;">RStudio</a><a href="/tags/WindowsService/" style="font-size: 10.00px;">WindowsService</a><a href="/tags/c/" style="font-size: 10.00px;">c</a><a href="/tags/c/" style="font-size: 10.00px;">c++</a><a href="/tags/eclipse/" style="font-size: 10.00px;">eclipse</a><a href="/tags/emacs/" style="font-size: 18.57px;">emacs</a><a href="/tags/hexo/" style="font-size: 18.57px;">hexo</a><a href="/tags/html/" style="font-size: 10.00px;">html</a><a href="/tags/linux/" style="font-size: 15.71px;">linux</a><a href="/tags/test/" style="font-size: 15.71px;">test</a><a href="/tags/vim/" style="font-size: 12.86px;">vim</a><a href="/tags/vs2010/" style="font-size: 10.00px;">vs2010</a><a href="/tags/图床/" style="font-size: 11.43px;">图床</a><a href="/tags/域名/" style="font-size: 10.00px;">域名</a><a href="/tags/手机/" style="font-size: 10.00px;">手机</a><a href="/tags/算法/" style="font-size: 10.00px;">算法</a>
+  </div>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2015/08/25/swirl/">利用swirl包学习R语言</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/25/r-equal/">R语言中判断两个对象是否相等</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/22/msysgiterror/">解决hexo一个奇怪的错误</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/16/win10Gvim/">解决gvim在win10下乱码的问题</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/16/csdnToHexo/">博客迁移</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=5369044986&verifier=351c49c3&dpc=1"></iframe>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Chilly
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','4sCRX4-_8sXRh2c_yhey','2.0.0');
+</script>
+
+</body>
+</html>

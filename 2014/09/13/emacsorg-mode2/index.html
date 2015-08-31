@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="3opA0XIxm3" />
+  <meta name="google-site-verification" content="Hhy5FdvsKUW9JERTVUPgWs42wAXDnZGY2oqSwpVv2SI" />
+  <meta name="360-site-verification" content="6f75b775c7e547843018a1a0bfb26657" />
+  <meta name="robots" content="nofollow"/>
+  
+  <title>只管去做—用emacs的org-mode做时间管理(2.规划、执行) | 认知自我</title>
+  <meta name="author" content="Chilly">
+  
+  <meta name="description" content="一个大学讲师在上课的时候带了一袋沙子、一袋小鹅卵石、几块大石头和一个木桶，问有没有人能把这几种不同形状的东西都装进木桶。
+一个热心的学生自告奋勇走上讲台随手抓起沙袋就往木桶里倒，然后把小鹅卵石也放了进去，但是轮到大石头的时候，他发现木桶里的空
+间已经不够了。讲师遗憾地摇了摇头。他把木桶清空了，先把那几块大石头放进木桶，再把小鹅卵石放进去，然后倒入沙子。最后他摇了
+摇木桶，只见这三种不同形状的东西配合得天衣无缝，把木桶挤得满满的。
+我们做规划的第一个原则是优先放置大石头，每周前把一周要做的重要事情在org-mode中将其优先级设为最高(shift+上下键设定每项的优化级)，但设定的事情尽量要少，因为这些事情是必须完成而且应尽早完成的。至于要不要一开始就设定日期，就看个人喜好了，有人在时限压力下工作更好，有人则会产生焦虑，但一般GTD不建议一开始将日期都定好（当然一些本身具有时限性的事情除外)。">
+  
+  
+  <meta name="keywords" content="emacs,数据分析,数据挖掘,R语言,Data mining,hexo">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="只管去做—用emacs的org-mode做时间管理(2.规划、执行)"/>
+  <meta property="og:site_name" content="认知自我"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="认知自我" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">认知自我</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/tags/R">R语言</a></li>
+    
+      <li><a href="/about">关于</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-09-13T06:41:19.000Z"><a href="/2014/09/13/emacsorg-mode2/">9月 13 2014</a></time>
+      
+      
+  
+    <h1 class="title">只管去做—用emacs的org-mode做时间管理(2.规划、执行)</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <pre><code>一个大学讲师在上课的时候带了一袋沙子、一袋小鹅卵石、几块大石头和一个木桶，问有没有人能把这几种不同形状的东西都装进木桶。
+一个热心的学生自告奋勇走上讲台随手抓起沙袋就往木桶里倒，然后把小鹅卵石也放了进去，但是轮到大石头的时候，他发现木桶里的空
+间已经不够了。讲师遗憾地摇了摇头。他把木桶清空了，先把那几块大石头放进木桶，再把小鹅卵石放进去，然后倒入沙子。最后他摇了
+摇木桶，只见这三种不同形状的东西配合得天衣无缝，把木桶挤得满满的。</code></pre>
+我们做规划的第一个原则是优先放置大石头，每周前把一周要做的重要事情在org-mode中将其优先级设为最高(shift+上下键设定每项的优化级)，但设定的事情尽量要少，因为这些事情是必须完成而且应尽早完成的。至于要不要一开始就设定日期，就看个人喜好了，有人在时限压力下工作更好，有人则会产生焦虑，但一般GTD不建议一开始将日期都定好（当然一些本身具有时限性的事情除外)。
+<a id="more"></a>
+然后是每天的规划了，同样是应当确定大石头，一般是两到三件最重要的事，在org-mode中C-c C-s将其规划到当天，并且优先级设为最高(shift+上下键设定每项的优化级)，事情应该描述得尽量具体，且保证当天能完成(完不成就细化)。然后就是尽早搞定你大石头了，一定不要找延误的理由，做完后表扬一下自己。至于其它事务，你一高兴当然会多少顺便做一些的，不是么？等一段时间后回头你就会发现不少事在不知不觉中就完成了，特别是重要的事都没延误。
+
+<pre><code>如果你有定力地全神贯注投入工作几个小时，一定会比不断分心的工作一天取得更多的成果。
+一般进入专注状态需要15分钟时间，所以能保持专注状态的外界环境和心理环境十分重要。
+进入专注状态前花几分钟清空头脑中萦绕的琐事(写到org中)，总比你进入专注状态后再被干扰要好。</code></pre>
+
+<p>至于执行，不用说，当然越专注越好，一次只做一件事，而做事时头脑中的琐事已经被事先清理出去了。另外，尽可能改善你的工作环境。</p>
+<p>做完一件事后，C-c C-t改成DONE，然后表扬一下自己，再扫描一下清单，找出下一步要做的，记得应该是真正可执行的下一步。所有事情被延误就是因为没想好具体的下一步做什么，而不是因为时间不够，所以要对任何看着不具体的事情花一分钟想想下一步做什么，这一分钟绝对花得值~~~</p>
+<p>至于扫描清单，因为列表太长了，自然org-mode会贴心地提供一系列帮助你查找的方法：</p>
+<ul>
+<li>　C-c /: 在当前org中按关键词查看，比如你可查找某个tag如office：C-c / <ret> office <ret></ret></ret></li>
+<li>　C-c a a: 日程表，在日程表状态下，d或w为按日或周查看，.为跳到当日，左右键为前后一天(周)</li>
+<li>　C-c a t: 列出所有TODO，每项上按中键可跳到对应的org，至于其中的操作也很方便，自己看菜单了解一下吧</li>
+<li>　C-c a m: 根据tag来查找，这就是一开始每件事都要用标签定性的原因，这时候查就方便了，比如你要办公室就查office，要外出就看看trip中有什么可顺便完成的事，觉得头脑发胀要换思路就查查有什么easy的事，如果想气使颐指一下就看看wait中别人有什么事没给你做完，正豪情万丈中就看看future中有什么伟大的规划….</li>
+<li>　c-a a M: 根据tag来查找，但只针对TODO项</li>
+<li>　另外C-a a C可以自定义一些查找方式，自己试试吧</li>
+</ul>
+<p>转载地址：<a href="http://blog.chinaunix.net/uid-342902-id-2416124.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-342902-id-2416124.html</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/emacs/">emacs</a>
+  </div>
+
+        <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<nav id="pagination" >
+    
+    <a href="/2014/09/13/emacsorg-mode3/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2014/09/13/emacsorg-mode1/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="/2014/09/13/emacsorg-mode2/" data-title="只管去做—用emacs的org-mode做时间管理(2.规划、执行)" data-url="http://www.cognize.me/2014/09/13/emacsorg-mode2/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"cognize"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form>
+    <input type="search" id="cognize-search-input" placeholder="搜索">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Amazon-EC2/">Amazon EC2</a><small>1</small></li>
+  
+    <li><a href="/tags/C/">C#</a><small>8</small></li>
+  
+    <li><a href="/tags/English/">English</a><small>5</small></li>
+  
+    <li><a href="/tags/Godaddy/">Godaddy</a><small>1</small></li>
+  
+    <li><a href="/tags/R/">R</a><small>23</small></li>
+  
+    <li><a href="/tags/RStudio/">RStudio</a><small>1</small></li>
+  
+    <li><a href="/tags/WindowsService/">WindowsService</a><small>1</small></li>
+  
+    <li><a href="/tags/c/">c</a><small>1</small></li>
+  
+    <li><a href="/tags/c/">c++</a><small>1</small></li>
+  
+    <li><a href="/tags/eclipse/">eclipse</a><small>1</small></li>
+  
+    <li><a href="/tags/emacs/">emacs</a><small>13</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>13</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>1</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>6</small></li>
+  
+    <li><a href="/tags/test/">test</a><small>6</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>3</small></li>
+  
+    <li><a href="/tags/vs2010/">vs2010</a><small>1</small></li>
+  
+    <li><a href="/tags/图床/">图床</a><small>2</small></li>
+  
+    <li><a href="/tags/域名/">域名</a><small>1</small></li>
+  
+    <li><a href="/tags/手机/">手机</a><small>1</small></li>
+  
+    <li><a href="/tags/算法/">算法</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/Amazon-EC2/" style="font-size: 10.00px;">Amazon EC2</a><a href="/tags/C/" style="font-size: 17.14px;">C#</a><a href="/tags/English/" style="font-size: 14.29px;">English</a><a href="/tags/Godaddy/" style="font-size: 10.00px;">Godaddy</a><a href="/tags/R/" style="font-size: 20.00px;">R</a><a href="/tags/RStudio/" style="font-size: 10.00px;">RStudio</a><a href="/tags/WindowsService/" style="font-size: 10.00px;">WindowsService</a><a href="/tags/c/" style="font-size: 10.00px;">c</a><a href="/tags/c/" style="font-size: 10.00px;">c++</a><a href="/tags/eclipse/" style="font-size: 10.00px;">eclipse</a><a href="/tags/emacs/" style="font-size: 18.57px;">emacs</a><a href="/tags/hexo/" style="font-size: 18.57px;">hexo</a><a href="/tags/html/" style="font-size: 10.00px;">html</a><a href="/tags/linux/" style="font-size: 15.71px;">linux</a><a href="/tags/test/" style="font-size: 15.71px;">test</a><a href="/tags/vim/" style="font-size: 12.86px;">vim</a><a href="/tags/vs2010/" style="font-size: 10.00px;">vs2010</a><a href="/tags/图床/" style="font-size: 11.43px;">图床</a><a href="/tags/域名/" style="font-size: 10.00px;">域名</a><a href="/tags/手机/" style="font-size: 10.00px;">手机</a><a href="/tags/算法/" style="font-size: 10.00px;">算法</a>
+  </div>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2015/08/25/swirl/">利用swirl包学习R语言</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/25/r-equal/">R语言中判断两个对象是否相等</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/22/msysgiterror/">解决hexo一个奇怪的错误</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/16/win10Gvim/">解决gvim在win10下乱码的问题</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/16/csdnToHexo/">博客迁移</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=5369044986&verifier=351c49c3&dpc=1"></iframe>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Chilly
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','4sCRX4-_8sXRh2c_yhey','2.0.0');
+</script>
+
+</body>
+</html>
